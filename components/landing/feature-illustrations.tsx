@@ -1,14 +1,12 @@
-import { Check, CornerDownLeft, Search, Star } from "lucide-react";
+import { Check } from "lucide-react";
 import { ModelIcon } from "@/components/shared/model-icon";
-import { ShortcutKeys } from "@/components/shared/shortcut-keys";
-import { KEYBOARD_SHORTCUTS } from "@/constants/shortcuts";
 import { QUICK_ACTIONS } from "@/data/extension";
 import { MODELS, getProvider } from "@/data/models";
 import { cn } from "@/lib/utils";
 
 /*
- * Tiny, decorative UI fragments shown inside the larger feature cards.
- * Each root is aria-hidden because the card text already describes the feature.
+ * Tiny, decorative UI fragments shown beside the spotlight features.
+ * Each root is aria-hidden because the surrounding copy already describes the feature.
  */
 
 const SWITCHER_MODELS = ["gpt-5", "claude-sonnet-4-5", "gemini-2-5-pro", "deepseek-r1"]
@@ -115,103 +113,5 @@ export function QuickActionsIllustration() {
         </li>
       ))}
     </ul>
-  );
-}
-
-export function PromptVariablesIllustration() {
-  return (
-    <p
-      aria-hidden="true"
-      className="rounded-lg border border-border bg-background p-3 font-mono text-[11px] leading-relaxed text-muted-foreground"
-    >
-      Rewrite this for <span className="rounded bg-primary/12 px-1 text-primary-text">{"{{audience}}"}</span> in a{" "}
-      <span className="rounded bg-primary/12 px-1 text-primary-text">{"{{tone}}"}</span> tone. Keep every fact.
-    </p>
-  );
-}
-
-const HISTORY_ROWS = [
-  { title: "Debounced search hook in React", providerId: "anthropic", tag: "Code", favorite: true },
-  { title: "RAG vs fine-tuning for support docs", providerId: "google", tag: "Research", favorite: true },
-  { title: "Q4 OKRs for the growth team", providerId: "openai", tag: "Work", favorite: false },
-] as const;
-
-export function HistorySearchIllustration() {
-  return (
-    <div aria-hidden="true" className="rounded-xl border border-border bg-background p-1.5">
-      <div className="flex h-8 items-center gap-2 rounded-lg border border-border px-2.5 text-[11px] text-muted-foreground">
-        <Search className="size-3" />
-        <span className="text-foreground">hook</span>
-        <span className="ml-auto text-subtle-foreground">3 results</span>
-      </div>
-      <ul className="mt-1.5 space-y-0.5">
-        {HISTORY_ROWS.map((row) => (
-          <li key={row.title} className="flex items-center gap-2 rounded-md px-2 py-1.5 text-[11px]">
-            <ModelIcon providerId={row.providerId} size="xs" />
-            <span className="min-w-0 flex-1 truncate text-foreground">{row.title}</span>
-            {row.favorite && <Star className="size-3 fill-warning text-warning" />}
-            <span className="rounded-full border border-border px-1.5 text-[10px] text-muted-foreground">
-              {row.tag}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-const SAVED_PROMPTS = [
-  { title: "Review my code", category: "Coding", surfaces: ["App", "Extension"] },
-  { title: "Meeting notes to actions", category: "Business", surfaces: ["App", "Extension"] },
-  { title: "Reply to this thread", category: "Productivity", surfaces: ["Extension"] },
-] as const;
-
-export function SavedPromptsIllustration() {
-  return (
-    <ul aria-hidden="true" className="grid gap-2 sm:grid-cols-3">
-      {SAVED_PROMPTS.map((prompt) => (
-        <li key={prompt.title} className="rounded-lg border border-border bg-background p-2.5">
-          <p className="text-[10px] font-medium tracking-wide text-primary-text uppercase">{prompt.category}</p>
-          <p className="mt-1 truncate text-[11px] font-medium text-foreground">{prompt.title}</p>
-          <p className="mt-2 flex flex-wrap gap-1">
-            {prompt.surfaces.map((surface) => (
-              <span key={surface} className="rounded bg-muted px-1.5 py-px text-[10px] text-muted-foreground">
-                {surface}
-              </span>
-            ))}
-          </p>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-const PALETTE_SHORTCUT_IDS = ["new-chat", "model", "sidebar", "shortcuts"];
-const PALETTE_ITEMS = KEYBOARD_SHORTCUTS.filter((shortcut) => PALETTE_SHORTCUT_IDS.includes(shortcut.id));
-
-export function CommandPaletteIllustration() {
-  return (
-    <div aria-hidden="true" className="overflow-hidden rounded-xl border border-border bg-background shadow-sm">
-      <div className="flex h-10 items-center gap-2 border-b border-border px-3 text-xs text-subtle-foreground">
-        <Search className="size-3.5" />
-        Search or run a command
-        <ShortcutKeys keys={["mod", "K"]} className="ml-auto" />
-      </div>
-      <ul className="p-1.5">
-        {PALETTE_ITEMS.map((shortcut, index) => (
-          <li
-            key={shortcut.id}
-            className={cn(
-              "flex items-center gap-2 rounded-md px-2.5 py-2 text-xs text-muted-foreground",
-              index === 0 && "bg-muted text-foreground",
-            )}
-          >
-            <span className="min-w-0 flex-1 truncate">{shortcut.label}</span>
-            {index === 0 && <CornerDownLeft className="size-3 text-subtle-foreground" />}
-            <ShortcutKeys keys={shortcut.keys} />
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }

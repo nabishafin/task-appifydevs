@@ -58,9 +58,9 @@ export function PromptCard({
       <p className={cn("text-muted-foreground", compact ? "line-clamp-2 text-xs" : "text-sm")}>{prompt.description}</p>
 
       {!compact && (
-        <p className="line-clamp-2 rounded-lg border border-border bg-background-subtle px-3 py-2 font-mono text-xs leading-5 text-muted-foreground">
-          {prompt.prompt}
-        </p>
+        <div className="rounded-lg border border-border bg-background-subtle px-3 py-2">
+          <p className="line-clamp-2 font-mono text-xs leading-5 text-muted-foreground">{prompt.prompt}</p>
+        </div>
       )}
 
       <div className="mt-auto flex items-center justify-between gap-2 pt-1">

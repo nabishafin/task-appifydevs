@@ -2,6 +2,7 @@ import { Mail } from "lucide-react";
 import { ResponsiveContainer } from "@/components/shared/responsive-container";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/constants/site";
 import { FAQ_ITEMS } from "@/data/faq";
 import { SectionHeading } from "./section-heading";
 
@@ -21,16 +22,15 @@ export function FAQSection() {
             description="Everything you need to know about models, the extension, privacy and plans."
             align="left"
           />
-          <div className="mt-8 rounded-xl border border-border bg-card p-5">
-            <p className="text-sm font-medium text-foreground">Still have a question?</p>
-            <p className="mt-1 text-sm text-muted-foreground">We usually reply within one business day.</p>
-            <Button asChild variant="outline" size="sm" className="mt-4">
-              <a href="mailto:hello@echogpt.live">
-                <Mail data-icon="inline-start" aria-hidden="true" />
-                hello@echogpt.live
-              </a>
-            </Button>
-          </div>
+          <p className="mt-8 text-sm text-muted-foreground">
+            Still have a question? We usually reply within one business day.
+          </p>
+          <Button asChild variant="link" className="mt-1 h-auto px-0">
+            <a href={`mailto:${siteConfig.email}`}>
+              <Mail data-icon="inline-start" aria-hidden="true" />
+              {siteConfig.email}
+            </a>
+          </Button>
         </div>
 
         <Accordion type="single" collapsible defaultValue={FAQ_ITEMS[0]?.id} className="self-start">

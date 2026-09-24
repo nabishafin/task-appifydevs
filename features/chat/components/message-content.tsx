@@ -16,6 +16,7 @@ export function InlineText({ text }: { text: string }) {
             </strong>
           );
         }
+        if (token.type === "italic") return <em key={index}>{token.value}</em>;
         if (token.type === "code") {
           return (
             <code

@@ -34,7 +34,7 @@ export const FOOTER_LINKS: FooterLinkGroup[] = [
     links: [
       { label: "Why EchoGPT", href: "/#why" },
       { label: "Testimonials", href: "/#testimonials" },
-      { label: "Contact", href: "mailto:hello@echogpt.live" },
+      { label: "Contact", href: `mailto:${siteConfig.email}` },
     ],
   },
   {

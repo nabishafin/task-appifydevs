@@ -1,17 +1,18 @@
 import type { MessageBlock } from "@/types/chat";
 
-export type InlineToken =
-  { type: "text"; value: string } | { type: "bold"; value: string } | { type: "code"; value: string };
+export type InlineToken = { type: "text" | "bold" | "italic" | "code"; value: string };
 
-const INLINE_PATTERN = /(\*\*[^*]+\*\*|`[^`]+`)/g;
+const INLINE_PATTERN = /(\*\*[^*]+\*\*|\*[^*\s][^*\n]*\*|`[^`]+`)/g;
 
-/** Splits text into plain, **bold** and `code` tokens. Intentionally tiny: no nesting. */
+/** Splits text into plain, **bold**, *italic* and `code` tokens. Intentionally tiny: no nesting. */
 export function parseInline(text: string): InlineToken[] {
   const tokens: InlineToken[] = [];
   for (const part of text.split(INLINE_PATTERN)) {
     if (!part) continue;
     if (part.startsWith("**") && part.endsWith("**") && part.length > 4) {
       tokens.push({ type: "bold", value: part.slice(2, -2) });
+    } else if (part.startsWith("*") && part.endsWith("*") && part.length > 2) {
+      tokens.push({ type: "italic", value: part.slice(1, -1) });
     } else if (part.startsWith("`") && part.endsWith("`") && part.length > 2) {
       tokens.push({ type: "code", value: part.slice(1, -1) });
     } else {
@@ -29,10 +30,10 @@ export function blocksToPlainText(blocks: MessageBlock[]): string {
         case "heading":
         case "paragraph":
         case "callout":
-          return block.text.replace(/\*\*|`/g, "");
+          return block.text.replace(/\*\*?|`/g, "");
         case "list":
           return block.items
-            .map((item, index) => `${block.ordered ? `${index + 1}.` : "-"} ${item.replace(/\*\*|`/g, "")}`)
+            .map((item, index) => `${block.ordered ? `${index + 1}.` : "-"} ${item.replace(/\*\*?|`/g, "")}`)
             .join("\n");
         case "code":
           return `\`\`\`${block.language}\n${block.code}\n\`\`\``;

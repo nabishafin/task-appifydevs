@@ -36,6 +36,12 @@ describe("buildMockResponse", () => {
     expect(blocks.some((block) => block.type === "code")).toBe(true);
   });
 
+  it("gives different providers a distinct voice for side-by-side comparison", () => {
+    const gpt = buildMockResponse("Compare REST and GraphQL", "gpt-5");
+    const claude = buildMockResponse("Compare REST and GraphQL", "claude-sonnet-4-5");
+    expect(gpt).not.toEqual(claude);
+  });
+
   it("respects the response style", () => {
     const balanced = buildMockResponse("Summarize this article", "gpt-5", "balanced");
     const concise = buildMockResponse("Summarize this article", "gpt-5", "concise");

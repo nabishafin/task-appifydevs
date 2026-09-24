@@ -12,6 +12,14 @@ describe("parseInline", () => {
     ]);
   });
 
+  it("parses single-asterisk italics", () => {
+    expect(parseInline("How *big* is it?")).toEqual([
+      { type: "text", value: "How " },
+      { type: "italic", value: "big" },
+      { type: "text", value: " is it?" },
+    ]);
+  });
+
   it("leaves unmatched markers as text", () => {
     expect(parseInline("2 ** 3 and a lone `")).toEqual([{ type: "text", value: "2 ** 3 and a lone `" }]);
   });

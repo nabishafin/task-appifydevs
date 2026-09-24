@@ -132,12 +132,12 @@ export function SidebarContent({
             <Button variant="outline" className="w-full justify-start bg-card" onClick={handleNewChat}>
               <SquarePen aria-hidden="true" />
               New chat
-              <ShortcutKeys keys={["mod", "Shift", "O"]} className="ml-auto" />
+              <ShortcutKeys keys={["mod", "Shift", "O"]} className="ml-auto max-md:hidden" />
             </Button>
             <Button variant="ghost" className="w-full justify-start" onClick={handleSearch}>
               <Search aria-hidden="true" />
               Search chats
-              <ShortcutKeys keys={["mod", "K"]} className="ml-auto" />
+              <ShortcutKeys keys={["mod", "K"]} className="ml-auto max-md:hidden" />
             </Button>
           </>
         )}

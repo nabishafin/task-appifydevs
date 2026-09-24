@@ -81,9 +81,9 @@ export function Hero() {
           <BrowserPreview />
         </div>
 
-        <dl className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4">
+        <dl className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-y-6 sm:grid-cols-4 sm:divide-x sm:divide-border">
           {TRUST_STATS.map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-1 bg-background px-4 py-5 text-center">
+            <div key={stat.label} className="flex flex-col items-center gap-1 px-4 text-center">
               <dt className="order-2 text-xs text-muted-foreground">{stat.label}</dt>
               <dd className="order-1 text-2xl font-semibold tracking-tight text-foreground">{stat.value}</dd>
             </div>

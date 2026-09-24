@@ -1,7 +1,7 @@
 import { getModel, getProvider } from "@/data/models";
 import { sleep, truncate } from "@/lib/utils";
 import type { MessageBlock } from "@/types/chat";
-import type { ModelSpeed } from "@/types/models";
+import type { ModelSpeed, ProviderId } from "@/types/models";
 import type { ResponseStyle } from "@/types/settings";
 
 /**
@@ -202,10 +202,31 @@ function applyStyle(blocks: MessageBlock[], style: ResponseStyle): MessageBlock[
   return blocks;
 }
 
+/** Opening lines per provider so side-by-side answers read like different models. */
+const PROVIDER_VOICE: Record<ProviderId, { lead: string; reorderLists: boolean }> = {
+  openai: { lead: "Short version first, then the detail.", reorderLists: false },
+  anthropic: { lead: "Here is a careful breakdown, with the trade-offs made explicit.", reorderLists: true },
+  google: { lead: "Let me look at this from a few angles before recommending anything.", reorderLists: true },
+  mistral: { lead: "Direct answer, then the reasoning behind it.", reorderLists: false },
+  deepseek: { lead: "Working through this step by step.", reorderLists: false },
+  meta: { lead: "Here is a practical take you can act on today.", reorderLists: true },
+};
+
+function applyVoice(blocks: MessageBlock[], providerId: ProviderId): MessageBlock[] {
+  const voice = PROVIDER_VOICE[providerId];
+  const voiced = blocks.map((block): MessageBlock =>
+    voice.reorderLists && block.type === "list" && !block.ordered
+      ? { ...block, items: [...block.items].reverse() }
+      : block,
+  );
+  return [{ type: "paragraph", text: voice.lead }, ...voiced];
+}
+
 export function buildMockResponse(prompt: string, modelId: string, style: ResponseStyle = "balanced"): MessageBlock[] {
   const model = getModel(modelId);
   const intent = detectIntent(prompt);
-  return applyStyle(RESPONSES[intent](topicFrom(prompt), model.name), style);
+  const blocks = applyVoice(RESPONSES[intent](topicFrom(prompt), model.name), model.providerId);
+  return applyStyle(blocks, style);
 }
 
 const LATENCY_MS: Record<ModelSpeed, number> = { fast: 700, balanced: 1200, thorough: 1800 };

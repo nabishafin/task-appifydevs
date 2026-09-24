@@ -10,33 +10,27 @@ export function WhySection() {
       aria-labelledby="why-title"
       className="border-y border-border bg-background-subtle py-20 sm:py-28"
     >
-      <ResponsiveContainer size="xl">
+      <ResponsiveContainer size="xl" className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-20">
         <SectionHeading
           id="why-title"
           eyebrow="Why EchoGPT"
           title="Less juggling, more finished work"
           description="The value is not another chatbot. It is fewer tabs, fewer logins and a workflow that stays the same whichever model you choose."
+          align="left"
+          className="lg:sticky lg:top-28 lg:self-start"
         />
-        <Stagger
-          as="ul"
-          className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {BENEFITS.map(({ title, description, icon: Icon, metric }) => (
-            <StaggerItem as="li" key={title} className="flex flex-col bg-card p-6 sm:p-7">
-              <div className="flex items-center justify-between gap-4">
-                <span className="inline-flex size-9 items-center justify-center rounded-lg border border-border bg-background-subtle text-primary-text">
-                  <Icon className="size-4" aria-hidden="true" />
-                </span>
-                {metric && (
-                  <p className="text-right">
-                    <span className="block text-2xl font-semibold tracking-tight text-foreground tabular-nums">
-                      {metric.value}
-                    </span>
-                    <span className="block text-xs text-subtle-foreground">{metric.label}</span>
-                  </p>
-                )}
-              </div>
-              <h3 className="mt-6 text-base font-semibold text-foreground">{title}</h3>
+        <Stagger as="ul" className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
+          {BENEFITS.map(({ title, description, metric }) => (
+            <StaggerItem as="li" key={title} className="border-t border-border pt-6">
+              {metric && (
+                <p className="flex items-baseline gap-2">
+                  <span className="text-3xl font-semibold tracking-tight text-foreground tabular-nums">
+                    {metric.value}
+                  </span>
+                  <span className="text-sm text-subtle-foreground">{metric.label}</span>
+                </p>
+              )}
+              <h3 className="mt-4 text-base font-semibold text-foreground">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
             </StaggerItem>
           ))}
