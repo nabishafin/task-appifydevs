@@ -317,6 +317,13 @@
   color: var(--code-type);
 }
 
+/* Fades the landing hero banner out on its left and bottom edges. */
+@utility hero-banner-mask {
+  mask-image: linear-gradient(to right, transparent 0%, #000 42%), linear-gradient(to top, transparent 0%, #000 24%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
 @utility thin-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: var(--border-strong) transparent;

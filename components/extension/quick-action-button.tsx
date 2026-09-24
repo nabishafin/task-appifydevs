@@ -17,7 +17,7 @@ export function QuickActionButton({ action, onRun, variant = "card", disabled = 
         type="button"
         disabled={disabled}
         onClick={() => onRun(action)}
-        className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full border border-border bg-card px-3 text-xs font-medium text-foreground transition-colors outline-none hover:border-border-strong hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/40 disabled:pointer-events-none disabled:opacity-50"
+        className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-md border border-border bg-card px-3 text-xs font-medium text-foreground transition-colors outline-none hover:border-border-strong hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/40 disabled:pointer-events-none disabled:opacity-50"
       >
         <Icon className="size-3.5 text-muted-foreground" aria-hidden="true" />
         {action.label}
@@ -31,7 +31,7 @@ export function QuickActionButton({ action, onRun, variant = "card", disabled = 
       disabled={disabled}
       onClick={() => onRun(action)}
       className={cn(
-        "group/action flex min-h-[4.25rem] flex-col items-start gap-1.5 rounded-xl border border-border bg-card p-2.5 text-left transition-[border-color,background-color,transform] outline-none",
+        "group/action flex min-h-[4.25rem] flex-col items-start gap-1.5 rounded-lg border border-border bg-card p-2.5 text-left transition-[border-color,background-color,transform] outline-none",
         "hover:-translate-y-px hover:border-border-strong hover:bg-muted/60 focus-visible:ring-3 focus-visible:ring-ring/40 disabled:pointer-events-none disabled:opacity-50",
       )}
     >

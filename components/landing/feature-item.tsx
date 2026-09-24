@@ -14,7 +14,7 @@ export function FeatureSpotlight({ feature, illustration, reversed = false }: Fe
   const Icon = feature.icon;
 
   return (
-    <article className="grid items-center gap-8 py-12 first:pt-0 last:pb-0 lg:grid-cols-2 lg:gap-16 lg:py-16">
+    <article className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
       <div className={cn("max-w-md", reversed && "lg:order-2 lg:justify-self-end")}>
         <Icon className="size-5 text-primary-text" aria-hidden="true" />
         <h3 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">{feature.title}</h3>

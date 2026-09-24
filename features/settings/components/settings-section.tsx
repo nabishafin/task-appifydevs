@@ -24,7 +24,7 @@ export function SettingsSection({ id, title, description, children, className }:
 
 export function SettingsCard({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={cn("divide-y divide-border rounded-xl border border-border bg-card", className)}>{children}</div>
+    <div className={cn("divide-y divide-border rounded-lg border border-border bg-card", className)}>{children}</div>
   );
 }
 

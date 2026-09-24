@@ -52,10 +52,10 @@ export function AppearanceSettings() {
         </SettingRow>
       </SettingsCard>
 
-      <div className="rounded-xl border border-dashed border-border p-4 sm:p-5" aria-label="Preview">
+      <div className="rounded-lg border border-dashed border-border p-4 sm:p-5" aria-label="Preview">
         <p className="mb-3 text-xs font-medium tracking-wide text-subtle-foreground uppercase">Preview</p>
         <div className="flex flex-col gap-(--chat-gap)">
-          <p className="ml-auto max-w-sm rounded-2xl rounded-br-md bg-user-message px-4 py-2 text-(length:--chat-font-size) text-foreground">
+          <p className="ml-auto max-w-sm rounded-lg rounded-br-md bg-user-message px-4 py-2 text-(length:--chat-font-size) text-foreground">
             Can you summarize this in three bullet points?
           </p>
           <p className="max-w-md text-(length:--chat-font-size) leading-7 text-foreground/90">

@@ -4,11 +4,12 @@ A redesign of the **EchoGPT** ecosystem built for the **AppifyDevs Software Engi
 
 The project brings three experiences together under one design system:
 
-| Route        | Experience                                                                     |
-| ------------ | ------------------------------------------------------------------------------ |
-| `/`          | Marketing landing page                                                         |
-| `/app`       | Redesigned web application (chat, models, prompts, compare, history, settings) |
-| `/extension` | Interactive Chrome extension demo (popup and sidebar layouts)                  |
+| Route                  | Experience                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| `/`                    | Marketing landing page                                                         |
+| `/app`                 | Redesigned web application (chat, models, prompts, compare, history, settings) |
+| `/extension`           | Interactive Chrome extension demo (popup and sidebar layouts)                  |
+| `/sign-in`, `/sign-up` | Mock authentication pages with validated forms                                 |
 
 > Live demo: _add your Vercel URL here after deploying_ · Current product for reference: [echogpt.live](https://echogpt.live/)
 
@@ -81,9 +82,11 @@ Optional environment variable: `NEXT_PUBLIC_SITE_URL` sets the canonical URL for
 
 - Sticky header. On scroll it gains a border and blur. It highlights the active section, and on mobile the menu is a drawer.
 - Hero with the core message ("Every leading AI model. One calm workspace."), a primary and a secondary CTA, provider marks and trust figures. The hero animates in with CSS only, so it doesn't wait for JavaScript.
-- A product preview built from real markup inside a browser frame, not images.
-- A bento-style **Features** grid with small illustrative UI pieces. It covers multi-model chat, model switching, the browser sidebar, prompt workflows, organization, shortcuts and reusable prompts.
-- **AI Models**: a data-driven grid showing each model's provider, capabilities, context window and Free/Pro tier.
+- A theme-matched product banner (`public/hero-banner-dark.png` / `hero-banner-light.png`) served through `next/image`.
+  - On wide screens (1280px+) it fills the right side behind the copy and fades into the page; on smaller screens it sits below the text.
+  - Both images are lazy and the inactive one is `display: none`, so only the banner for the current theme is downloaded, with a blur placeholder while it loads.
+- **Features**: three key capabilities (multi-model chat, model switching and the browser sidebar) get full-width rows with small product fragments. Prompt workflows, organization, shortcuts and reusable prompts are listed below them without boxes.
+- **AI Models**: a data-driven, table-style list showing each model's provider, strengths, context window and Free/Pro plan. On mobile each row stacks.
 - **Product preview** tabs: Compare, Prompt library and Chrome sidebar.
 - **Why EchoGPT**: benefits with metrics.
 - **Workflow comparison**: a real `<table>` on desktop that becomes stacked cards on mobile.
@@ -91,6 +94,13 @@ Optional environment variable: `NEXT_PUBLIC_SITE_URL` sets the canonical URL for
 - **Testimonials**, an accessible **FAQ** accordion and a closing **CTA**.
 - **Footer** with link columns, social links and a newsletter form. The form validates with Zod, is a mock that sends nothing, and is lazy-loaded.
 - SEO: metadata, Open Graph and Twitter tags, a generated OG image, `sitemap.xml` and `robots.txt`.
+
+### Sign in and sign up (`/sign-in`, `/sign-up`)
+
+- The header's "Sign in" and "Get started" open these pages.
+- Split layout: the form on the left and the theme banner on the right (large screens).
+- React Hook Form + Zod validation with inline errors, a password show/hide toggle, and Google/GitHub buttons (simulated).
+- Submitting shows a loading state, then opens the workspace. Sign-up saves the name and email as the profile shown in the app's account menu.
 
 ### Web app (`/app`)
 
@@ -202,7 +212,8 @@ tests/                    unit/ (Vitest) and e2e/ (Playwright)
   - Components use classes such as `bg-card`, `text-muted-foreground` and `text-primary-text`, never raw hex values.
   - The light theme redefines the same tokens.
   - A separate `--primary-text` token keeps brand-colored _text_ readable on neutral surfaces in both themes.
-- **Provider colors stay small.** Each provider's color only tints its monogram tile, so model cards look consistent and EchoGPT's brand stays dominant.
+- **Provider colors stay small.** Each provider's color only tints its monogram tile, so model entries look consistent and EchoGPT's brand stays dominant.
+- **Few cards, small radius.** The landing page uses rows, tables, hairline dividers and plain columns instead of a grid of boxes; cards are kept only where grouping helps (pricing plans, app panels). The base radius is 6px (`--radius: 0.375rem`), and cards, inputs and buttons share it for one crisp, consistent corner.
 - **Readable chat.**
   - Assistant replies sit directly on the page surface, and user messages use a subtle brand tint instead of bright bubbles.
   - Code blocks use a dedicated dark surface in both themes.
@@ -250,7 +261,9 @@ tests/                    unit/ (Vitest) and e2e/ (Playwright)
   - the `ChatComposer` component (disabled send, Enter vs Shift+Enter, Ctrl/⌘+Enter mode).
 - **End-to-end tests** (`tests/e2e`, desktop and mobile):
   - the landing CTA leads into the app;
-  - choosing a model, sending a prompt, seeing the thinking state and receiving a mock response.
+  - choosing a model, sending a prompt, seeing the thinking state and receiving a mock response;
+  - header "Sign in" opens the sign-in page, validation errors appear, and a valid submit opens the app;
+  - sign-up saves the entered name, which then appears in the workspace account menu.
 
 ---
 
@@ -264,7 +277,8 @@ tests/                    unit/ (Vitest) and e2e/ (Playwright)
 ## Known limitations
 
 - AI responses come from templates chosen by keywords in the prompt, so they are not real answers to arbitrary questions. Responses appear after a short delay rather than streaming token by token.
-- These controls are simulated and say so in the interface: attachments (files are listed, not uploaded), web search, voice input, share links, sign-out and checkout.
+- These controls are simulated and say so in the interface: attachments (files are listed, not uploaded), web search, voice input, share links and checkout.
+- Authentication is a mock: any valid email and password (or the Google/GitHub buttons) signs you in and opens `/app`, and "Forgot password?" only shows a notice. Sign-up stores the name and email as the local profile; sign-out returns to `/sign-in`. The workspace is not protected by a login.
 - Custom instructions (in both the app and the extension) are validated and saved, but the mock responder does not use them.
 - Data persists only in this browser's localStorage. Clearing site data resets the demo.
 - The extension is a web demo of the UI, not an installable Manifest V3 extension. Its shortcuts are display-only, except <kbd>Alt E</kbd>, which toggles the panel.

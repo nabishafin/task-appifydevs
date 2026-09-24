@@ -19,7 +19,7 @@ export function BrowserFrame({
   toolbar,
 }: BrowserFrameProps) {
   return (
-    <div className={cn("overflow-hidden rounded-xl border border-border bg-card shadow-lg", className)}>
+    <div className={cn("overflow-hidden rounded-lg border border-border bg-card shadow-lg", className)}>
       <div className="flex h-10 items-center gap-3 border-b border-border bg-background-subtle px-3">
         <div className="flex gap-1.5" aria-hidden="true">
           <span className="size-2.5 rounded-full bg-border-strong" />

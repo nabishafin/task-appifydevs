@@ -69,7 +69,7 @@ export function CompareView() {
           event.preventDefault();
           run();
         }}
-        className="rounded-2xl border border-border bg-card p-3 shadow-sm focus-within:border-border-strong"
+        className="rounded-lg border border-border bg-card p-3 shadow-sm focus-within:border-border-strong"
       >
         <Label htmlFor="compare-prompt" className="sr-only">
           Prompt to compare

@@ -16,7 +16,7 @@ export function CodeBlock({ code, language, filename, className }: CodeBlockProp
   return (
     <figure
       className={cn(
-        "code-surface overflow-hidden rounded-xl border border-code-border bg-code text-code-foreground",
+        "code-surface overflow-hidden rounded-lg border border-code-border bg-code text-code-foreground",
         className,
       )}
     >

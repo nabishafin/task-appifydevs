@@ -6,7 +6,7 @@ const SIZES = {
   xs: "size-4 rounded-[5px] text-[9px]",
   sm: "size-5 rounded-md text-[10px]",
   md: "size-7 rounded-lg text-xs",
-  lg: "size-10 rounded-xl text-sm",
+  lg: "size-10 rounded-lg text-sm",
 } as const;
 
 interface ModelIconProps {

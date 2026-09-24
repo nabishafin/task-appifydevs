@@ -46,7 +46,7 @@ function HistoryItem({ conversation, active, onOpen, onDelete }: HistoryItemProp
         onClick={() => onOpen(conversation.id)}
         aria-current={active ? "true" : undefined}
         className={cn(
-          "flex w-full items-start gap-2.5 rounded-xl border p-2.5 pr-10 text-left transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/40",
+          "flex w-full items-start gap-2.5 rounded-lg border p-2.5 pr-10 text-left transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/40",
           active
             ? "border-primary/30 bg-primary/5"
             : "border-border bg-card hover:border-border-strong hover:bg-muted/50",

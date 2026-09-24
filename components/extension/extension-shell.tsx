@@ -84,7 +84,7 @@ export function ExtensionShell({ onClose, className }: ExtensionShellProps) {
                 initial={{ opacity: 0, y: -6, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -4 }}
-                className="flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium shadow-md"
+                className="flex items-center gap-1.5 rounded-md border border-border bg-card px-3 py-1 text-xs font-medium shadow-md"
               >
                 <Check className="size-3.5 text-success" aria-hidden="true" />
                 Switched to {notice.name}

@@ -32,7 +32,7 @@ export function PromptCard({
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       className={cn(
-        "group/prompt relative flex flex-col rounded-xl border border-border bg-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-sm",
+        "group/prompt relative flex flex-col rounded-lg border border-border bg-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-sm",
         compact ? "gap-2 p-3" : "gap-3 p-4",
         className,
       )}

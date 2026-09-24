@@ -114,7 +114,7 @@ export function ExtensionDemo() {
       <BrowserFrame
         url={DEMO_PAGE.url.replace("https://", "")}
         toolbar={toolbar}
-        className="max-md:rounded-2xl max-md:[&>div:first-child]:hidden"
+        className="max-md:rounded-lg max-md:[&>div:first-child]:hidden"
         contentClassName="flex h-[600px] md:h-[660px]"
       >
         <div className={cn("hidden min-w-0 flex-1 md:block", isSidebar && panelVisible && "border-r border-border")}>
@@ -147,7 +147,7 @@ export function ExtensionDemo() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.96, y: -8 }}
                 style={{ transformOrigin: "top right" }}
-                className="h-full w-full overflow-hidden md:absolute md:top-2 md:right-3 md:h-[600px] md:w-[380px] md:rounded-xl md:border md:border-border md:shadow-lg"
+                className="h-full w-full overflow-hidden md:absolute md:top-2 md:right-3 md:h-[600px] md:w-[380px] md:rounded-lg md:border md:border-border md:shadow-lg"
               >
                 <ExtensionShell onClose={closePanel} />
               </m.div>

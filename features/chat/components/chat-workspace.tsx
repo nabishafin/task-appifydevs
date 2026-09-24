@@ -158,7 +158,7 @@ export function ChatWorkspace() {
             <Button
               size="sm"
               variant="outline"
-              className="pointer-events-auto rounded-full bg-card shadow-md"
+              className="pointer-events-auto rounded-md bg-card shadow-md"
               onClick={() => scrollToBottom()}
             >
               <ArrowDown aria-hidden="true" />

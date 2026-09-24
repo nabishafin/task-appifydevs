@@ -47,7 +47,7 @@ export function ComparisonSection() {
         />
 
         <Reveal className="mt-14">
-          <div className="hidden overflow-hidden rounded-2xl border border-border bg-card md:block">
+          <div className="hidden overflow-hidden rounded-lg border border-border bg-card md:block">
             <table className="w-full border-collapse text-left text-sm">
               <caption className="sr-only">How common AI tasks compare between separate AI tools and EchoGPT</caption>
               <thead>
@@ -89,7 +89,7 @@ export function ComparisonSection() {
 
           <ul className="space-y-3 md:hidden">
             {WORKFLOW_COMPARISON.map((row) => (
-              <li key={row.task} className="rounded-xl border border-border bg-card">
+              <li key={row.task} className="rounded-lg border border-border bg-card">
                 <h3 className="border-b border-border px-4 py-3 text-sm font-semibold text-foreground">{row.task}</h3>
                 <div className="space-y-3 p-4 text-sm">
                   <TraditionalCell labelled>{row.traditional}</TraditionalCell>

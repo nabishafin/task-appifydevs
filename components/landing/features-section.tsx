@@ -38,7 +38,7 @@ export function FeaturesSection() {
 
         <div className="mt-16 divide-y divide-border">
           {spotlightFeatures.map((feature, index) => (
-            <Reveal key={feature.id}>
+            <Reveal key={feature.id} className="py-12 first:pt-0 last:pb-0 lg:py-16">
               <FeatureSpotlight feature={feature} illustration={SPOTLIGHT[feature.id]} reversed={index % 2 === 1} />
             </Reveal>
           ))}

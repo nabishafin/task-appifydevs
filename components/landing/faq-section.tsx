@@ -1,7 +1,6 @@
 import { Mail } from "lucide-react";
 import { ResponsiveContainer } from "@/components/shared/responsive-container";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/constants/site";
 import { FAQ_ITEMS } from "@/data/faq";
 import { SectionHeading } from "./section-heading";
@@ -25,12 +24,13 @@ export function FAQSection() {
           <p className="mt-8 text-sm text-muted-foreground">
             Still have a question? We usually reply within one business day.
           </p>
-          <Button asChild variant="link" className="mt-1 h-auto px-0">
-            <a href={`mailto:${siteConfig.email}`}>
-              <Mail data-icon="inline-start" aria-hidden="true" />
-              {siteConfig.email}
-            </a>
-          </Button>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-primary-text underline-offset-4 hover:underline"
+          >
+            <Mail className="size-4" aria-hidden="true" />
+            {siteConfig.email}
+          </a>
         </div>
 
         <Accordion type="single" collapsible defaultValue={FAQ_ITEMS[0]?.id} className="self-start">

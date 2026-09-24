@@ -21,7 +21,7 @@ export function PricingCard({ tier, billing, className }: PricingCardProps) {
     <article
       aria-labelledby={titleId}
       className={cn(
-        "relative flex h-full flex-col rounded-2xl border bg-card p-6 sm:p-7",
+        "relative flex h-full flex-col rounded-lg border bg-card p-6 sm:p-7",
         highlighted ? "border-primary/60 shadow-md ring-1 ring-primary/30" : "border-border",
         className,
       )}
@@ -31,7 +31,7 @@ export function PricingCard({ tier, billing, className }: PricingCardProps) {
           {tier.name}
         </h3>
         {tier.badge && (
-          <span className="rounded-full bg-primary px-2.5 py-0.5 text-[11px] font-semibold text-primary-foreground">
+          <span className="rounded-md bg-primary px-2.5 py-0.5 text-[11px] font-semibold text-primary-foreground">
             {tier.badge}
           </span>
         )}

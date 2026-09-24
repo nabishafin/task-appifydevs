@@ -114,7 +114,7 @@ export function ChatComposer({
         submit();
       }}
       className={cn(
-        "group/composer rounded-2xl border border-border bg-card shadow-sm transition-[border-color,box-shadow] focus-within:border-border-strong focus-within:shadow-md",
+        "group/composer rounded-lg border border-border bg-card shadow-sm transition-[border-color,box-shadow] focus-within:border-border-strong focus-within:shadow-md",
         className,
       )}
     >
@@ -232,7 +232,7 @@ export function ChatComposer({
             <Mic aria-hidden="true" />
           </TooltipIconButton>
           {isGenerating ? (
-            <TooltipIconButton label="Stop generating" variant="secondary" onClick={onStop} className="rounded-full">
+            <TooltipIconButton label="Stop generating" variant="secondary" onClick={onStop} className="rounded-md">
               <Square className="size-3.5 fill-current" aria-hidden="true" />
             </TooltipIconButton>
           ) : (
@@ -241,7 +241,7 @@ export function ChatComposer({
               type="submit"
               variant="default"
               disabled={!canSend}
-              className="rounded-full disabled:bg-muted disabled:text-subtle-foreground disabled:opacity-100 disabled:shadow-none"
+              className="rounded-md disabled:bg-muted disabled:text-subtle-foreground disabled:opacity-100 disabled:shadow-none"
             >
               <ArrowUp aria-hidden="true" />
             </TooltipIconButton>

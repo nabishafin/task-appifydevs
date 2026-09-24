@@ -23,7 +23,7 @@ export function EmptyState({ icon: Icon, title, description, action, className, 
     >
       <span
         className={cn(
-          "flex items-center justify-center rounded-xl border border-border bg-card text-muted-foreground shadow-xs",
+          "flex items-center justify-center rounded-lg border border-border bg-card text-muted-foreground shadow-xs",
           size === "md" ? "size-12" : "size-10",
         )}
       >
@@ -50,7 +50,7 @@ export function ErrorState({ title = "Something went wrong", description, onRetr
     <div
       role="alert"
       className={cn(
-        "flex items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm",
+        "flex items-start gap-3 rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-sm",
         className,
       )}
     >
@@ -103,7 +103,7 @@ export function SkeletonLoader({ variant, count = 3, className }: SkeletonLoader
       {items.map((index) => {
         if (variant === "cards") {
           return (
-            <div key={index} className="space-y-3 rounded-xl border border-border bg-card p-4">
+            <div key={index} className="space-y-3 rounded-lg border border-border bg-card p-4">
               <Skeleton className="h-4 w-1/3" />
               <Skeleton className="h-3 w-full" />
               <Skeleton className="h-3 w-4/5" />

@@ -42,7 +42,7 @@ export function UpgradeDialog() {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="gap-5 sm:max-w-2xl">
         <DialogHeader className="items-start">
-          <span className="mb-1 flex size-10 items-center justify-center rounded-xl bg-primary/12 text-primary-text">
+          <span className="mb-1 flex size-10 items-center justify-center rounded-lg bg-primary/12 text-primary-text">
             <Zap className="size-5" aria-hidden="true" />
           </span>
           <DialogTitle className="text-lg">Upgrade your workspace</DialogTitle>
@@ -74,7 +74,7 @@ export function UpgradeDialog() {
                 key={tier.id}
                 value={tier.id}
                 className={cn(
-                  "flex flex-col gap-3 rounded-xl border p-4 text-left transition-[border-color,box-shadow]",
+                  "flex flex-col gap-3 rounded-lg border p-4 text-left transition-[border-color,box-shadow]",
                   isSelected
                     ? "border-primary shadow-sm ring-3 ring-primary/15"
                     : "border-border hover:border-border-strong",
@@ -83,7 +83,7 @@ export function UpgradeDialog() {
                 <span className="flex items-center justify-between">
                   <span className="font-medium text-foreground">{tier.name}</span>
                   {tier.badge && (
-                    <span className="rounded-full bg-primary/12 px-2 py-0.5 text-[11px] font-medium text-primary-text">
+                    <span className="rounded-md bg-primary/12 px-2 py-0.5 text-[11px] font-medium text-primary-text">
                       {tier.badge}
                     </span>
                   )}

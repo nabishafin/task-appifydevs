@@ -15,7 +15,7 @@ const SWITCHER_MODELS = ["gpt-5", "claude-sonnet-4-5", "gemini-2-5-pro", "deepse
 
 export function ModelSwitcherIllustration() {
   return (
-    <div aria-hidden="true" className="rounded-xl border border-border bg-background p-1.5 shadow-sm">
+    <div aria-hidden="true" className="rounded-lg border border-border bg-background p-1.5 shadow-sm">
       <p className="px-2.5 pt-1.5 pb-2 text-[11px] font-medium text-subtle-foreground">Choose a model</p>
       <ul className="space-y-0.5">
         {SWITCHER_MODELS.map((model, index) => {
@@ -31,7 +31,7 @@ export function ModelSwitcherIllustration() {
                 <span className="block truncate text-subtle-foreground">{getProvider(model.providerId).name}</span>
               </span>
               {model.tier === "pro" && (
-                <span className="rounded-full border border-border px-1.5 text-[10px] text-muted-foreground">Pro</span>
+                <span className="rounded-md border border-border px-1.5 text-[10px] text-muted-foreground">Pro</span>
               )}
               <Check className={cn("size-3.5 text-primary-text", !selected && "invisible")} />
             </li>
@@ -54,7 +54,7 @@ export function MixedThreadIllustration({ className }: { className?: string }) {
   return (
     <ol
       aria-hidden="true"
-      className={cn("flex-col justify-center gap-2 rounded-xl border border-border bg-background p-3", className)}
+      className={cn("flex-col justify-center gap-2 rounded-lg border border-border bg-background p-3", className)}
     >
       {THREAD.map((turn, index) => (
         <li key={index} className="flex items-start gap-2 text-[11px] leading-relaxed">
@@ -106,7 +106,7 @@ export function QuickActionsIllustration() {
       {QUICK_ACTIONS.map(({ id, label, icon: Icon }) => (
         <li
           key={id}
-          className="inline-flex h-7 items-center gap-1.5 rounded-full border border-border bg-background px-2.5 text-[11px] font-medium text-muted-foreground"
+          className="inline-flex h-7 items-center gap-1.5 rounded-md border border-border bg-background px-2.5 text-[11px] font-medium text-muted-foreground"
         >
           <Icon className="size-3 text-primary-text" />
           {label}

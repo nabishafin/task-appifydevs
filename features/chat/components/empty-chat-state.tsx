@@ -70,7 +70,7 @@ export function EmptyChatState({
               aria-pressed={isSelected}
               onClick={() => onSelectModel(model.id)}
               className={cn(
-                "flex h-9 items-center gap-2 rounded-full border px-3 text-sm transition-colors",
+                "flex h-9 items-center gap-2 rounded-md border px-3 text-sm transition-colors",
                 isSelected
                   ? "border-primary/50 bg-primary/10 text-foreground"
                   : "border-border bg-card text-muted-foreground hover:border-border-strong hover:text-foreground",
@@ -97,7 +97,7 @@ export function EmptyChatState({
                 <button
                   type="button"
                   onClick={() => onUseSuggestion(suggestion.prompt)}
-                  className="group/suggestion flex h-full w-full items-start gap-3 rounded-xl border border-border bg-card p-3.5 text-left transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-sm"
+                  className="group/suggestion flex h-full w-full items-start gap-3 rounded-lg border border-border bg-card p-3.5 text-left transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-sm"
                 >
                   <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground transition-colors group-hover/suggestion:text-primary-text">
                     <Icon className="size-4" aria-hidden="true" />

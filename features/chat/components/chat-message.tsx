@@ -42,7 +42,7 @@ function UserBubble({ message, compact }: { message: UserMessage; compact: boole
         )}
         <div
           className={cn(
-            "rounded-2xl rounded-br-md border border-primary/10 bg-user-message whitespace-pre-wrap text-foreground",
+            "rounded-lg rounded-br-md border border-primary/10 bg-user-message whitespace-pre-wrap text-foreground",
             compact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-(length:--chat-font-size) leading-7",
           )}
         >

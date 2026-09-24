@@ -34,7 +34,7 @@ function ModelCatalogCard({
   const provider = getProvider(model.providerId);
 
   return (
-    <article className="flex flex-col gap-4 rounded-xl border border-border bg-card p-5 transition-[border-color,box-shadow] hover:border-border-strong hover:shadow-sm">
+    <article className="flex flex-col gap-4 rounded-lg border border-border bg-card p-5 transition-[border-color,box-shadow] hover:border-border-strong hover:shadow-sm">
       <div className="flex items-start gap-3">
         <ModelIcon providerId={model.providerId} size="lg" />
         <div className="min-w-0 flex-1">

@@ -68,7 +68,7 @@ export function SegmentedControl<T extends string>({
             {Icon && <Icon className="relative size-3.5" aria-hidden="true" />}
             <span className="relative">{optionLabel}</span>
             {badge && (
-              <span className="relative rounded-full bg-primary/12 px-1.5 py-px text-[10px] font-semibold text-primary-text">
+              <span className="relative rounded-md bg-primary/12 px-1.5 py-px text-[10px] font-semibold text-primary-text">
                 {badge}
               </span>
             )}

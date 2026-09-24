@@ -188,7 +188,7 @@ export function SidebarContent({
           <button
             type="button"
             onClick={() => openOverlay("upgrade")}
-            className="group/upgrade flex w-full items-center gap-3 rounded-xl border border-border bg-card p-3 text-left transition-colors hover:border-primary/40"
+            className="group/upgrade flex w-full items-center gap-3 rounded-lg border border-border bg-card p-3 text-left transition-colors hover:border-primary/40"
           >
             <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/12 text-primary-text">
               <Zap className="size-4" aria-hidden="true" />

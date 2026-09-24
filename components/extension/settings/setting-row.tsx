@@ -20,7 +20,7 @@ export function SettingsSection({
         </h3>
         {description && <p className="mt-0.5 text-xs text-muted-foreground">{description}</p>}
       </div>
-      <div className="divide-y divide-border rounded-xl border border-border bg-card">{children}</div>
+      <div className="divide-y divide-border rounded-lg border border-border bg-card">{children}</div>
     </section>
   );
 }

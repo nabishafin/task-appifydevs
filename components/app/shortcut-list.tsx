@@ -16,7 +16,7 @@ export function ShortcutList() {
           >
             {SHORTCUT_SCOPE_LABELS[scope]}
           </h3>
-          <dl className="divide-y divide-border rounded-xl border border-border">
+          <dl className="divide-y divide-border rounded-lg border border-border">
             {KEYBOARD_SHORTCUTS.filter((shortcut) => shortcut.scope === scope).map((shortcut) => (
               <div key={shortcut.id} className="flex items-center justify-between gap-4 px-3.5 py-2.5 text-sm">
                 <dt className="text-foreground">{shortcut.label}</dt>

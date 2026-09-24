@@ -102,7 +102,7 @@ export function PromptsView() {
                 aria-pressed={selected}
                 onClick={() => setFilter(option.value)}
                 className={cn(
-                  "h-8 shrink-0 rounded-full border px-3 text-xs font-medium transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/40",
+                  "h-8 shrink-0 rounded-md border px-3 text-xs font-medium transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/40",
                   selected
                     ? "border-primary/30 bg-primary/10 text-primary-text"
                     : "border-border bg-card text-muted-foreground hover:border-border-strong hover:text-foreground",

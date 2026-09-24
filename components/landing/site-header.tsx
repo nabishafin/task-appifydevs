@@ -19,10 +19,10 @@ export function SiteHeader() {
         <div className="flex items-center gap-1 sm:gap-2">
           <ThemeToggle className="size-10 lg:size-8" />
           <Button asChild variant="ghost" size="sm" className="hidden lg:inline-flex">
-            <Link href={siteConfig.links.app}>Sign in</Link>
+            <Link href={siteConfig.links.signIn}>Sign in</Link>
           </Button>
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <Link href={siteConfig.links.app}>Get started</Link>
+            <Link href={siteConfig.links.signUp}>Get started</Link>
           </Button>
           <MobileNav />
         </div>

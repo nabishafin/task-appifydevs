@@ -52,7 +52,7 @@ export function UtilityPanel() {
               <h2 id="panel-model" className="mb-3 text-xs font-medium tracking-wide text-subtle-foreground uppercase">
                 Active model
               </h2>
-              <div className="rounded-xl border border-border bg-card p-4">
+              <div className="rounded-lg border border-border bg-card p-4">
                 <div className="flex items-center gap-3">
                   <ModelIcon providerId={model.providerId} size="lg" />
                   <div className="min-w-0">

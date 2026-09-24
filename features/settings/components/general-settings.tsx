@@ -47,7 +47,7 @@ export function GeneralSettings() {
       title="General"
       description="Your profile and language. Changes save to this browser."
     >
-      <form onSubmit={onSubmit} noValidate className="rounded-xl border border-border bg-card p-4 sm:p-5">
+      <form onSubmit={onSubmit} noValidate className="rounded-lg border border-border bg-card p-4 sm:p-5">
         <FieldGroup className="gap-5">
           <div className="grid gap-5 sm:grid-cols-2">
             <Field data-invalid={Boolean(errors.displayName)}>

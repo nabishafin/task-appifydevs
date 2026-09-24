@@ -38,7 +38,7 @@ export function CompareColumn({
       aria-label={label}
       aria-busy={result.status === "loading"}
       className={cn(
-        "flex min-h-80 min-w-0 flex-col rounded-2xl border bg-card transition-[border-color,box-shadow]",
+        "flex min-h-80 min-w-0 flex-col rounded-lg border bg-card transition-[border-color,box-shadow]",
         isPreferred ? "border-primary/60 shadow-sm ring-3 ring-primary/10" : "border-border",
       )}
     >

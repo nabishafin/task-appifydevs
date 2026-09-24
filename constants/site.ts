@@ -7,6 +7,8 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://echogpt-redesign.vercel.app",
   links: {
     app: "/app",
+    signIn: "/sign-in",
+    signUp: "/sign-up",
     extension: "/extension",
     chromeStore: "https://chromewebstore.google.com/detail/echogpt-multi-ai-chat-sid/negimdcamohmoheiifgecbjgjepkcfhj",
     liveProduct: "https://echogpt.live/",

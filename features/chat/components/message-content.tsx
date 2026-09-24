@@ -84,7 +84,7 @@ function Block({ block }: { block: MessageBlock }) {
       const style = CALLOUT_STYLES[block.tone];
       const Icon = style.icon;
       return (
-        <aside className={cn("flex gap-3 rounded-xl border p-3.5", style.className)}>
+        <aside className={cn("flex gap-3 rounded-lg border p-3.5", style.className)}>
           <Icon className={cn("mt-0.5 size-4 shrink-0", style.iconClassName)} aria-hidden="true" />
           <p>
             <span className="sr-only">{style.label}: </span>

@@ -43,7 +43,7 @@ export function CompareMock() {
     <div aria-hidden="true" className={cn("flex flex-col bg-background select-none", MOCK_HEIGHT)}>
       <div className="flex h-12 shrink-0 items-center gap-2 border-b border-border px-4">
         <p className="truncate text-sm font-medium text-foreground">Compare · Annual vs monthly billing</p>
-        <span className="ml-auto rounded-full border border-border px-2 py-0.5 text-[11px] text-muted-foreground">
+        <span className="ml-auto rounded-md border border-border px-2 py-0.5 text-[11px] text-muted-foreground">
           2 models
         </span>
       </div>
@@ -55,7 +55,7 @@ export function CompareMock() {
           <div
             key={answer.modelName}
             className={cn(
-              "flex-col rounded-xl border border-border bg-card p-4",
+              "flex-col rounded-lg border border-border bg-card p-4",
               index === 0 ? "flex" : "hidden sm:flex",
             )}
           >
@@ -112,7 +112,7 @@ export function PromptLibraryMock() {
         </div>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {LIBRARY_TEMPLATES.map((template) => (
-            <li key={template.id} className="flex flex-col gap-2 rounded-xl border border-border bg-card p-3.5">
+            <li key={template.id} className="flex flex-col gap-2 rounded-lg border border-border bg-card p-3.5">
               <p className="flex items-center justify-between gap-2 text-[11px] text-subtle-foreground">
                 <span className="rounded-md bg-muted px-1.5 py-px text-muted-foreground">
                   {CATEGORY_LABELS.get(template.category)}

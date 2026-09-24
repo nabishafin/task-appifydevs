@@ -77,7 +77,7 @@ export function HistoryView() {
         </Button>
       </div>
 
-      <div className="space-y-3 rounded-xl border border-border bg-background-subtle p-3">
+      <div className="space-y-3 rounded-lg border border-border bg-background-subtle p-3">
         <div className="flex flex-col gap-2 sm:flex-row">
           <Input
             type="search"

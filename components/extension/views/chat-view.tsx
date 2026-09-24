@@ -13,7 +13,7 @@ import { QuickActionButton } from "../quick-action-button";
 
 function PageContextChip({ enabled }: { enabled: boolean }) {
   return (
-    <span className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-xs text-muted-foreground">
+    <span className="inline-flex max-w-full items-center gap-1.5 rounded-md border border-border bg-card px-2.5 py-1 text-xs text-muted-foreground">
       <Globe className="size-3.5 shrink-0" aria-hidden="true" />
       {enabled ? (
         <span className="truncate">
@@ -46,7 +46,7 @@ function EmptyChat({
         </p>
       </div>
 
-      <figure className="rounded-xl border border-primary/20 bg-primary/5 px-3 py-2.5">
+      <figure className="rounded-lg border border-primary/20 bg-primary/5 px-3 py-2.5">
         <figcaption className="mb-1 flex items-center gap-1.5 text-[11px] font-medium tracking-wide text-primary-text uppercase">
           <TextSelect className="size-3.5" aria-hidden="true" />
           Selected text

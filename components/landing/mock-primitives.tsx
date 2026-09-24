@@ -33,7 +33,7 @@ export function MockModelPill({ providerId, name, className }: ModelPillProps) {
 export function MockUserMessage({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex justify-end">
-      <p className="max-w-[85%] rounded-2xl rounded-br-md bg-user-message px-3.5 py-2.5 text-[13px] leading-relaxed text-foreground">
+      <p className="max-w-[85%] rounded-lg rounded-br-md bg-user-message px-3.5 py-2.5 text-[13px] leading-relaxed text-foreground">
         {children}
       </p>
     </div>
@@ -76,7 +76,7 @@ export function MockComposer({
   className,
 }: ComposerProps) {
   return (
-    <div className={cn("rounded-xl border border-border bg-card p-2.5 shadow-sm", className)}>
+    <div className={cn("rounded-lg border border-border bg-card p-2.5 shadow-sm", className)}>
       <p className="px-1 pb-3 text-[13px] text-subtle-foreground">{placeholder}</p>
       <div className="flex items-center gap-1.5">
         <MockModelPill providerId={providerId} name={modelName} className="min-w-0" />

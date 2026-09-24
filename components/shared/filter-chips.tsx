@@ -46,7 +46,7 @@ export function FilterChips<T extends string>({
             aria-pressed={active}
             onClick={() => onValueChange(option.value)}
             className={cn(
-              "relative inline-flex shrink-0 items-center gap-1.5 rounded-full border font-medium whitespace-nowrap transition-colors",
+              "relative inline-flex shrink-0 items-center gap-1.5 rounded-md border font-medium whitespace-nowrap transition-colors",
               size === "md" ? "h-8 px-3 text-sm" : "h-7 px-2.5 text-xs",
               active
                 ? "border-transparent text-primary-foreground"
@@ -54,7 +54,7 @@ export function FilterChips<T extends string>({
             )}
           >
             {active && (
-              <m.span layoutId={layoutId} aria-hidden="true" className="absolute inset-0 rounded-full bg-primary" />
+              <m.span layoutId={layoutId} aria-hidden="true" className="absolute inset-0 rounded-md bg-primary" />
             )}
             <span className="relative">{option.label}</span>
             {option.count !== undefined && (

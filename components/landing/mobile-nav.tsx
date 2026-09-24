@@ -44,13 +44,13 @@ export function MobileNav() {
         </nav>
         <div className="flex flex-col gap-2 border-t border-border p-4">
           <Button asChild size="lg" onClick={close}>
-            <Link href={siteConfig.links.app}>
+            <Link href={siteConfig.links.signUp}>
               Get started
               <ArrowRight data-icon="inline-end" aria-hidden="true" />
             </Link>
           </Button>
           <Button asChild size="lg" variant="outline" onClick={close}>
-            <Link href={siteConfig.links.app}>Sign in</Link>
+            <Link href={siteConfig.links.signIn}>Sign in</Link>
           </Button>
         </div>
       </SheetContent>

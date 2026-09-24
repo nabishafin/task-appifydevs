@@ -37,7 +37,7 @@ export function WhatsNew() {
       </h2>
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {POINTS.map(({ icon: Icon, title, description }) => (
-          <li key={title} className="space-y-2 rounded-xl border border-border bg-card p-4">
+          <li key={title} className="space-y-2 rounded-lg border border-border bg-card p-4">
             <span className="flex size-8 items-center justify-center rounded-lg bg-background-subtle text-primary-text">
               <Icon className="size-4" aria-hidden="true" />
             </span>
