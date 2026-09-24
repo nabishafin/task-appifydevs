@@ -9,7 +9,11 @@ const THRESHOLD_PX = 80;
  * unless the user has scrolled up to read earlier messages.
  * Uses native browser scrolling for 100% responsiveness on mobile and desktop.
  */
-export function useStickToBottom<T extends HTMLElement>(dependency: unknown, structuralKey: unknown) {
+export function useStickToBottom<T extends HTMLElement>(
+  dependency: unknown,
+  structuralKey: unknown,
+  enabled = true,
+) {
   const containerRef = useRef<T>(null);
   const [isAtBottom, setIsAtBottom] = useState(true);
   const isAtBottomRef = useRef(true);
@@ -39,13 +43,22 @@ export function useStickToBottom<T extends HTMLElement>(dependency: unknown, str
 
   // When new messages arrive or state changes, if user was at the bottom, auto-scroll to bottom.
   useEffect(() => {
+    if (!enabled) return;
     if (isAtBottomRef.current) {
       const raf = requestAnimationFrame(() => {
         scrollToBottom();
       });
       return () => cancelAnimationFrame(raf);
     }
-  }, [dependency, structuralKey, scrollToBottom]);
+  }, [dependency, structuralKey, scrollToBottom, enabled]);
+
+  // When disabled (e.g. empty state / new chat), ensure container resets to top
+  useEffect(() => {
+    if (!enabled) {
+      containerRef.current?.scrollTo({ top: 0, behavior: "auto" });
+      isAtBottomRef.current = true;
+    }
+  }, [enabled]);
 
   return { containerRef, isAtBottom, scrollToBottom };
 }

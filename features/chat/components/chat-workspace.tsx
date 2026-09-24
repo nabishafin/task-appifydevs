@@ -52,6 +52,7 @@ export function ChatWorkspace() {
   const { containerRef, isAtBottom, scrollToBottom } = useStickToBottom<HTMLDivElement>(
     `${messages.length}-${isGenerating}`,
     `${hydrated}-${hasMessages}`,
+    hasMessages,
   );
 
   useEffect(() => {
@@ -60,10 +61,14 @@ export function ChatWorkspace() {
     textareaRef.current?.focus();
   }, [initialDraft, setComposerDraft]);
 
-  // Jump to the latest message when switching conversations.
+  // Jump to the latest message when switching conversations, or reset to top on empty state
   useEffect(() => {
-    scrollToBottom("auto");
-  }, [conversation?.id, scrollToBottom]);
+    if (hasMessages) {
+      scrollToBottom("auto");
+    } else {
+      containerRef.current?.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [conversation?.id, hasMessages, scrollToBottom, containerRef]);
 
   useHotkey("/", () => textareaRef.current?.focus());
   useHotkey("m", () => modelMenu.onOpenChange(!modelMenu.open), { mod: true });
