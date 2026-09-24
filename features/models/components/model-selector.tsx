@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useMemo, useState } from "react";
 import { ModelIcon } from "@/components/shared/model-icon";
 import { Badge } from "@/components/ui/badge";
@@ -103,9 +103,6 @@ export function ModelSelector({
                             <Badge variant="outline" className="h-4 px-1.5 text-[10px] text-primary-text">
                               Pro
                             </Badge>
-                          )}
-                          {model.isNew && !compact && (
-                            <Sparkles className="size-3 text-highlight" aria-label="New model" />
                           )}
                         </div>
                         {!compact && <p className="line-clamp-1 text-xs text-muted-foreground">{model.description}</p>}
