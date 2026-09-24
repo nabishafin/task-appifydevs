@@ -48,8 +48,10 @@ export function ChatWorkspace() {
 
   const messages = useMemo(() => conversation?.messages ?? [], [conversation]);
   const isGenerating = conversation !== undefined && pendingConversationId === conversation.id;
+  const hasMessages = messages.length > 0;
   const { containerRef, isAtBottom, scrollToBottom } = useStickToBottom<HTMLDivElement>(
     `${messages.length}-${isGenerating}`,
+    `${hydrated}-${hasMessages}`,
   );
 
   useEffect(() => {
@@ -106,8 +108,6 @@ export function ChatWorkspace() {
         description: "Earlier messages stay as context.",
       });
   }
-
-  const hasMessages = messages.length > 0;
 
   return (
     <div className="relative flex min-h-0 flex-1 flex-col">

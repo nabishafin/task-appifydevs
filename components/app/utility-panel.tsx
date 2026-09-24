@@ -5,6 +5,7 @@ import { AnimatePresence, m } from "motion/react";
 import Link from "next/link";
 import { ModelIcon } from "@/components/shared/model-icon";
 import { ShortcutKeys } from "@/components/shared/shortcut-keys";
+import { SmoothScrollPanel } from "@/components/shared/smooth-scroll-panel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CAPABILITY_LABELS, getModel, getProvider } from "@/data/models";
@@ -47,7 +48,7 @@ export function UtilityPanel() {
           exit={{ width: 0, opacity: 0 }}
           className="hidden shrink-0 overflow-hidden border-l border-border bg-background-subtle xl:block"
         >
-          <div className="h-full w-[300px] thin-scrollbar space-y-6 overflow-y-auto p-5">
+          <SmoothScrollPanel className="h-full w-[300px] thin-scrollbar space-y-6 overflow-y-auto p-5">
             <section aria-labelledby="panel-model">
               <h2 id="panel-model" className="mb-3 text-xs font-medium tracking-wide text-subtle-foreground uppercase">
                 Active model
@@ -120,7 +121,7 @@ export function UtilityPanel() {
                 </li>
               </ul>
             </section>
-          </div>
+          </SmoothScrollPanel>
         </m.aside>
       )}
     </AnimatePresence>

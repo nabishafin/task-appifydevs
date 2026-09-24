@@ -8,6 +8,7 @@ import { RecentConversations } from "@/components/app/recent-conversations";
 import { UserMenu } from "@/components/app/user-menu";
 import { Logo } from "@/components/shared/logo";
 import { ShortcutKeys } from "@/components/shared/shortcut-keys";
+import { SmoothScrollPanel } from "@/components/shared/smooth-scroll-panel";
 import { TooltipIconButton } from "@/components/shared/tooltip-icon-button";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -162,10 +163,10 @@ export function SidebarContent({
       {collapsed ? (
         <div className="flex-1" />
       ) : (
-        <div className="mt-5 min-h-0 flex-1 thin-scrollbar overflow-y-auto px-2 pb-2">
+        <SmoothScrollPanel className="mt-5 min-h-0 flex-1 thin-scrollbar overflow-y-auto px-2 pb-2">
           <h2 className="sr-only">Recent conversations</h2>
           <RecentConversations onNavigate={onNavigate} />
-        </div>
+        </SmoothScrollPanel>
       )}
 
       <div
