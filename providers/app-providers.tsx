@@ -33,7 +33,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
 
   return (
     <LazyMotion features={loadMotionFeatures} strict>
-      <MotionConfig reducedMotion="user" transition={{ type: "spring", bounce: 0, duration: 0.35 }}>
+      <MotionConfig reducedMotion="never" transition={{ type: "spring", bounce: 0, duration: 0.35 }}>
         <TooltipProvider delayDuration={300}>
           <LenisProvider>{children}</LenisProvider>
           <Toaster position="bottom-right" closeButton />

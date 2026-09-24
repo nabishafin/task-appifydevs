@@ -2,7 +2,6 @@
 
 import { ReactLenis, useLenis } from "lenis/react";
 import { useEffect } from "react";
-import { useMediaQuery } from "@/hooks/use-media-query";
 
 /** Matches Motion's default easing elsewhere in the app: quick start, no overshoot. */
 const EASE_OUT_CUBIC = (t: number) => 1 - (1 - t) ** 3;
@@ -24,7 +23,7 @@ function AnchorScrollBridge() {
       if (!target) return;
 
       event.preventDefault();
-      lenis.scrollTo(target);
+      lenis.scrollTo(target, { offset: -72 });
       history.pushState(null, "", anchor.hash);
     }
 
@@ -36,25 +35,20 @@ function AnchorScrollBridge() {
 }
 
 /**
- * Site-wide inertial smooth scrolling. Skipped entirely under `prefers-reduced-motion`,
- * which leaves native (instant) scrolling in place — same policy as the Motion setup
- * in AppProviders. Has no visible effect on routes like /app that scroll an internal
- * panel rather than the window; it simply has nothing to smooth there.
+ * Site-wide inertial smooth scrolling via Lenis.
  */
 export function LenisProvider({ children }: { children: React.ReactNode }) {
-  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
-
-  if (reducedMotion) return <>{children}</>;
-
   return (
     <ReactLenis
       root
+      autoRaf
       options={{
         duration: 1.1,
         easing: EASE_OUT_CUBIC,
         wheelMultiplier: 1,
         touchMultiplier: 1,
         autoRaf: true,
+        respectReducedMotion: false,
       }}
     >
       <AnchorScrollBridge />

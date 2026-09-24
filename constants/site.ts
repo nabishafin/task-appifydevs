@@ -7,6 +7,9 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://echogpt-redesign.vercel.app",
   links: {
     app: "/app",
+    models: "/app/models",
+    compare: "/app/compare",
+    prompts: "/app/prompts",
     signIn: "/sign-in",
     signUp: "/sign-up",
     extension: "/extension",
