@@ -3,7 +3,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/constants/site";
-import { FEATURES } from "@/data/features";
 import { cn } from "@/lib/utils";
 import {
   CompareIllustration,
