@@ -42,7 +42,7 @@ export function EmptyChatState({
       variants={container}
       initial="hidden"
       animate="visible"
-      className="mx-auto flex w-full max-w-2xl flex-col items-center px-4 pt-[8vh] pb-8 text-center"
+      className="mx-auto flex w-full max-w-2xl flex-col items-center px-4 pt-4 sm:pt-[6vh] pb-6 sm:pb-8 text-center"
     >
       <m.h2 variants={item} className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
         What can I help you with?
