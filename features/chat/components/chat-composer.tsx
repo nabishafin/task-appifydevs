@@ -190,17 +190,17 @@ export function ChatComposer({
               label={webSearch ? "Web search on" : "Web search off"}
               aria-pressed={webSearch}
               onClick={() => onWebSearchChange?.(!webSearch)}
-              className={cn(webSearch && "bg-primary/10 text-primary-text hover:bg-primary/15 hover:text-primary-text")}
+              className={cn("hidden sm:inline-flex", webSearch && "bg-primary/10 text-primary-text hover:bg-primary/15 hover:text-primary-text")}
             >
               <Globe aria-hidden="true" />
             </TooltipIconButton>
-            <TooltipIconButton label="Improve prompt" onClick={improvePrompt}>
+            <TooltipIconButton label="Improve prompt" onClick={improvePrompt} className="hidden sm:inline-flex">
               <Wand2 aria-hidden="true" />
             </TooltipIconButton>
           </>
         )}
-        {toolsSlot}
-        {modelSlot && <div className="ml-1 min-w-0">{modelSlot}</div>}
+        <div className="hidden sm:inline-flex">{toolsSlot}</div>
+        {modelSlot && <div className="min-w-0">{modelSlot}</div>}
 
         <div className="ml-auto flex items-center gap-1.5">
           {!compact && (

@@ -13,6 +13,8 @@ const EASE_OUT_CUBIC = (t: number) => 1 - (1 - t) ** 3;
  * regions. Falls back to native scrolling under `prefers-reduced-motion`.
  */
 export function SmoothScrollPanel({ className, children, ...props }: ComponentPropsWithoutRef<"div">) {
+  // On touch devices, use native browser touch momentum scrolling.
+  // Lenis on inner overflow elements freezes touch dragging on mobile phones.
   return (
     <ReactLenis
       className={className}
@@ -21,7 +23,7 @@ export function SmoothScrollPanel({ className, children, ...props }: ComponentPr
         duration: 1,
         easing: EASE_OUT_CUBIC,
         wheelMultiplier: 1,
-        touchMultiplier: 1,
+        touchMultiplier: 0, // Never hijack mobile touch
         autoRaf: true,
         respectReducedMotion: false,
       }}

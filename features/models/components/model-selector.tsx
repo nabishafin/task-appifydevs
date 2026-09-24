@@ -63,7 +63,7 @@ export function ModelSelector({
           )}
         >
           <ModelIcon providerId={selected.providerId} size={compact ? "xs" : "sm"} />
-          <span className="max-w-32 truncate">{selected.name}</span>
+          <span className="max-w-20 truncate sm:max-w-32">{selected.name}</span>
           <ChevronDown className="size-3.5 text-muted-foreground" aria-hidden="true" />
         </Button>
       </PopoverTrigger>

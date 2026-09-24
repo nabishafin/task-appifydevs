@@ -46,7 +46,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
         duration: 1.1,
         easing: EASE_OUT_CUBIC,
         wheelMultiplier: 1,
-        touchMultiplier: 1,
+        touchMultiplier: 0,
         autoRaf: true,
         respectReducedMotion: false,
       }}

@@ -113,7 +113,7 @@ export function ChatWorkspace() {
     <div className="relative flex min-h-0 flex-1 flex-col">
       <div
         ref={containerRef}
-        className="min-h-0 flex-1 thin-scrollbar overflow-y-auto"
+        className="min-h-0 flex-1 thin-scrollbar overflow-y-auto overscroll-y-contain"
         aria-live="polite"
         aria-busy={isGenerating}
       >
@@ -122,7 +122,7 @@ export function ChatWorkspace() {
             <SkeletonLoader variant="message" count={2} />
           </div>
         ) : hasMessages ? (
-          <div className="mx-auto flex w-full max-w-3xl flex-col gap-(--chat-gap) px-4 pt-8 pb-10 sm:px-6 lg:px-8">
+          <div className="mx-auto flex w-full max-w-3xl flex-col gap-(--chat-gap) px-4 pt-6 pb-14 sm:px-6 sm:pt-8 sm:pb-10 lg:px-8">
             {messages.map((message) => (
               <ChatMessage
                 key={message.id}
@@ -153,7 +153,7 @@ export function ChatWorkspace() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
-            className="pointer-events-none absolute inset-x-0 bottom-36 flex justify-center"
+            className="pointer-events-none absolute inset-x-0 bottom-44 z-20 flex justify-center sm:bottom-36"
           >
             <Button
               size="sm"

@@ -43,7 +43,9 @@ export function useStickToBottom<T extends HTMLElement>(dependency: unknown, str
     const wrapper = containerRef.current;
     const content = wrapper?.firstElementChild;
     if (!wrapper || !(content instanceof HTMLElement)) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // On touch devices (smartphones/tablets), use native momentum scrolling.
+    // Lenis on inner overflow wrappers intercepts and locks touchmove gestures on mobile.
+    if (window.matchMedia("(pointer: coarse)").matches) return;
 
     const lenis = new Lenis({
       wrapper,
@@ -51,7 +53,7 @@ export function useStickToBottom<T extends HTMLElement>(dependency: unknown, str
       duration: 0.9,
       easing: EASE_OUT_CUBIC,
       wheelMultiplier: 1,
-      touchMultiplier: 1,
+      touchMultiplier: 0,
       autoRaf: true,
     });
     lenisRef.current = lenis;
