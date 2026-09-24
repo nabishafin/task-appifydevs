@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { applyTheme } from "@/lib/theme";
 import { useThemeStore } from "@/store/theme-store";
+import { LenisProvider } from "./lenis-provider";
 
 const loadMotionFeatures = () => import("./motion-features").then((module) => module.default);
 
@@ -34,7 +35,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
     <LazyMotion features={loadMotionFeatures} strict>
       <MotionConfig reducedMotion="user" transition={{ type: "spring", bounce: 0, duration: 0.35 }}>
         <TooltipProvider delayDuration={300}>
-          {children}
+          <LenisProvider>{children}</LenisProvider>
           <Toaster position="bottom-right" closeButton />
         </TooltipProvider>
       </MotionConfig>

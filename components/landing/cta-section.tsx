@@ -7,12 +7,12 @@ import { siteConfig } from "@/constants/site";
 
 export function CTASection() {
   return (
-    <section aria-labelledby="cta-title" className="relative isolate overflow-hidden py-24 sm:py-32">
+    <section aria-labelledby="cta-title" className="relative isolate overflow-hidden py-12 sm:py-16">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-[-14rem] left-1/2 -z-10 h-80 w-[min(48rem,100%)] -translate-x-1/2 rounded-full bg-primary/12 blur-3xl"
       />
-      <ResponsiveContainer size="md">
+      <ResponsiveContainer size="wide">
         <Reveal className="flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-xl">
             <h2

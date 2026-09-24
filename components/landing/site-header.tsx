@@ -11,7 +11,7 @@ import { MobileNav } from "./mobile-nav";
 export function SiteHeader() {
   return (
     <HeaderShell>
-      <ResponsiveContainer size="xl" className="flex h-16 items-center gap-4">
+      <ResponsiveContainer size="wide" className="flex h-16 items-center gap-4">
         <Logo />
         <div className="flex flex-1 justify-center">
           <DesktopNav />

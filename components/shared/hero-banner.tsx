@@ -4,32 +4,38 @@ import lightBanner from "@/public/hero-banner-light.png";
 import { cn } from "@/lib/utils";
 
 const ALT = "The EchoGPT workspace with the model switcher, prompt composer and Chrome sidebar";
-const SIZES = "(min-width: 1280px) 60vw, 100vw";
 const IMAGE_CLASS = "object-cover object-right";
+
+interface HeroBannerProps {
+  className?: string;
+  imageClassName?: string;
+  /** How much of the viewport the banner actually occupies, e.g. "50vw" on the split auth layout. */
+  sizes?: string;
+}
 
 /**
  * Theme-matched product banner. Both images are lazy and the inactive one is
  * `display: none`, so the browser only downloads the banner for the current theme
  * (a hidden image is also dropped from the accessibility tree).
  */
-export function HeroBanner({ className }: { className?: string }) {
+export function HeroBanner({ className, imageClassName, sizes = "100vw" }: HeroBannerProps) {
   return (
     <div className={cn("relative overflow-hidden", className)}>
       <Image
         src={lightBanner}
         alt={ALT}
         fill
-        sizes={SIZES}
+        sizes={sizes}
         placeholder="blur"
-        className={cn(IMAGE_CLASS, "dark:hidden")}
+        className={cn(IMAGE_CLASS, imageClassName, "dark:hidden")}
       />
       <Image
         src={darkBanner}
         alt={ALT}
         fill
-        sizes={SIZES}
+        sizes={sizes}
         placeholder="blur"
-        className={cn(IMAGE_CLASS, "hidden dark:block")}
+        className={cn(IMAGE_CLASS, imageClassName, "hidden dark:block")}
       />
     </div>
   );

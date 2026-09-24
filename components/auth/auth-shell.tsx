@@ -14,7 +14,7 @@ interface AuthShellProps {
 export function AuthShell({ title, description, children }: AuthShellProps) {
   return (
     <div className="grid min-h-dvh lg:grid-cols-2">
-      <div className="flex flex-col px-4 py-6 sm:px-8">
+      <div className="flex flex-col px-4 py-6 sm:px-6 lg:px-8">
         <header className="flex items-center justify-between">
           <Logo />
           <div className="flex items-center gap-1">
@@ -42,7 +42,7 @@ export function AuthShell({ title, description, children }: AuthShellProps) {
         aria-label="EchoGPT preview"
         className="relative hidden overflow-hidden border-l border-border bg-background-subtle lg:block"
       >
-        <HeroBanner className="absolute inset-0" />
+        <HeroBanner className="absolute inset-0" sizes="50vw" />
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent px-10 pt-24 pb-10">
           <blockquote className="max-w-md text-lg leading-relaxed text-foreground">
             “I used to keep three AI tabs open. Now I ask once, compare two models and move on.”

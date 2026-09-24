@@ -1,4 +1,6 @@
 import { Check, X } from "lucide-react";
+import Image from "next/image";
+import beforeAfter from "@/public/before-after.png";
 import { LogoMark } from "@/components/shared/logo";
 import { ResponsiveContainer } from "@/components/shared/responsive-container";
 import { Reveal } from "@/components/shared/reveal";
@@ -37,8 +39,8 @@ function EchoCell({ children, labelled = false }: CellProps) {
 
 export function ComparisonSection() {
   return (
-    <section aria-labelledby="comparison-title" className="py-20 sm:py-28">
-      <ResponsiveContainer size="lg">
+    <section aria-labelledby="comparison-title" className="py-10 sm:py-14">
+      <ResponsiveContainer size="wide">
         <SectionHeading
           id="comparison-title"
           eyebrow="Before and after"
@@ -46,7 +48,19 @@ export function ComparisonSection() {
           description="Everyday AI work compared: juggling separate tools versus doing it all in EchoGPT."
         />
 
-        <Reveal className="mt-14">
+        <Reveal className="mt-8">
+          <figure className="mx-auto max-w-[88rem] overflow-hidden rounded-lg border border-border bg-code shadow-lg">
+            <Image
+              src={beforeAfter}
+              alt="Before: ChatGPT, Claude, Gemini, Perplexity and Notion AI open as separate windows. After: one EchoGPT workspace with every model in a single composer."
+              sizes="(min-width: 1152px) 1088px, calc(100vw - 2rem)"
+              placeholder="blur"
+              className="h-auto w-full"
+            />
+          </figure>
+        </Reveal>
+
+        <Reveal className="mt-8">
           <div className="hidden overflow-hidden rounded-lg border border-border bg-card md:block">
             <table className="w-full border-collapse text-left text-sm">
               <caption className="sr-only">How common AI tasks compare between separate AI tools and EchoGPT</caption>

@@ -41,7 +41,7 @@ export function SettingsView() {
   }
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:gap-10">
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:gap-10 lg:px-8 xl:px-10">
       <nav aria-label="Settings sections" className="lg:w-56 lg:shrink-0">
         <FilterChips
           label="Settings sections"

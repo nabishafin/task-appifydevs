@@ -22,15 +22,15 @@ function Quote({ testimonial }: { testimonial: Testimonial }) {
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" aria-labelledby="testimonials-title" className="py-20 sm:py-28">
-      <ResponsiveContainer size="xl">
+    <section id="testimonials" aria-labelledby="testimonials-title" className="py-10 sm:py-14">
+      <ResponsiveContainer size="wide">
         <SectionHeading
           id="testimonials-title"
           eyebrow="Testimonials"
           title="Loved by people who live in their browser"
           description="Designers, engineers, researchers and founders use EchoGPT to spend less time switching and more time shipping."
         />
-        <Stagger as="ul" className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+        <Stagger as="ul" className="mt-8 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {TESTIMONIALS.map((testimonial) => (
             <StaggerItem as="li" key={testimonial.id}>
               <Quote testimonial={testimonial} />

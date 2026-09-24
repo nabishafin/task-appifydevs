@@ -13,7 +13,7 @@ const ENTRANCE = "animate-in fade-in slide-in-from-bottom-2 duration-700 fill-mo
 
 function HeroCopy() {
   return (
-    <div className="mx-auto flex max-w-xl flex-col items-center text-center xl:mx-0 xl:max-w-lg xl:items-start xl:text-left">
+    <div className="mx-auto flex max-w-xl flex-col items-center text-center xl:mx-0 xl:max-w-[min(32rem,31vw)] xl:items-start xl:text-left">
       <Link
         href={siteConfig.links.extension}
         className={`${ENTRANCE} group inline-flex h-8 items-center gap-2 rounded-md border border-border bg-card/80 pr-3 pl-1 text-xs font-medium text-muted-foreground shadow-xs backdrop-blur transition-colors hover:border-border-strong hover:text-foreground`}
@@ -76,25 +76,31 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="overflow-hidden">
       <div className="relative isolate">
-        {/* Wide screens: soft brand light on the left so the copy side echoes the banner's atmosphere. */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-30 hidden xl:block">
-          <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_45%_65%_at_18%_45%,black,transparent)] opacity-40" />
-          <div className="absolute top-[12%] -left-48 h-[34rem] w-[46rem] rounded-full bg-primary/12 blur-[140px] dark:bg-primary/20" />
-          <div className="absolute -bottom-24 left-[8%] h-72 w-[52rem] rounded-full bg-brand-secondary/10 blur-[140px] dark:bg-brand-secondary/15" />
-        </div>
-        {/* The banner itself is masked, so its edges dissolve into that light instead of a hard seam. */}
-        <HeroBanner className="absolute inset-y-0 right-0 left-[34%] -z-20 hidden hero-banner-mask xl:block" />
+        {/* Wide screens: the banner covers the whole hero, fully visible; only the edges fade into the page. */}
+        <HeroBanner imageClassName="object-[100%_35%]" className="absolute inset-0 -z-20 hidden xl:block" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 hidden h-32 bg-gradient-to-t from-background to-transparent xl:block"
+        />
+        {/* Keeps the transparent header legible over whatever part of the banner sits underneath it. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 hidden h-32 bg-gradient-to-b from-background/70 to-transparent xl:block"
+        />
 
-        <ResponsiveContainer size="xl" className="pt-14 sm:pt-20 xl:flex xl:min-h-[44rem] xl:items-center xl:pt-0">
+        <ResponsiveContainer
+          size="wide"
+          className="pt-28 sm:pt-32 xl:flex xl:min-h-[max(40rem,38vw)] xl:items-center xl:pt-24"
+        >
           <HeroCopy />
         </ResponsiveContainer>
       </div>
 
-      <ResponsiveContainer size="xl">
+      <ResponsiveContainer size="wide">
         {/* Smaller screens: the banner sits below the copy instead of behind it. */}
-        <HeroBanner className="mt-12 aspect-[16/10] animate-in rounded-lg border border-border delay-300 duration-1000 fill-mode-both fade-in slide-in-from-bottom-4 sm:mt-14 xl:hidden" />
+        <HeroBanner className="mt-8 aspect-[16/10] animate-in rounded-lg border border-border delay-300 duration-1000 fill-mode-both fade-in slide-in-from-bottom-4 sm:mt-10 xl:hidden" />
 
-        <dl className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-y-6 pb-20 sm:grid-cols-4 sm:divide-x sm:divide-border sm:pb-28 xl:mt-6">
+        <dl className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-y-6 pb-12 sm:grid-cols-4 sm:divide-x sm:divide-border sm:pb-16 xl:mt-4">
           {TRUST_STATS.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center gap-1 px-4 text-center">
               <dt className="order-2 text-xs text-muted-foreground">{stat.label}</dt>

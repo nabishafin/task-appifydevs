@@ -118,11 +118,11 @@ export function ChatWorkspace() {
         aria-busy={isGenerating}
       >
         {!hydrated ? (
-          <div className="mx-auto w-full max-w-3xl px-4 py-10">
+          <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
             <SkeletonLoader variant="message" count={2} />
           </div>
         ) : hasMessages ? (
-          <div className="mx-auto flex w-full max-w-3xl flex-col gap-(--chat-gap) px-4 pt-8 pb-10 sm:px-6">
+          <div className="mx-auto flex w-full max-w-3xl flex-col gap-(--chat-gap) px-4 pt-8 pb-10 sm:px-6 lg:px-8">
             {messages.map((message) => (
               <ChatMessage
                 key={message.id}
@@ -168,7 +168,7 @@ export function ChatWorkspace() {
         )}
       </AnimatePresence>
 
-      <div className="shrink-0 bg-gradient-to-t from-background via-background to-transparent px-3 pt-2 pb-3 sm:px-6 sm:pb-5">
+      <div className="shrink-0 bg-gradient-to-t from-background via-background to-transparent px-4 pt-2 pb-3 sm:px-6 sm:pb-5 lg:px-8">
         <div className="mx-auto w-full max-w-3xl">
           <ChatComposer
             value={draft}

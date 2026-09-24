@@ -39,10 +39,11 @@ The project brings three experiences together under one design system:
 | Styling    | Tailwind CSS v4 with CSS-variable design tokens                         |
 | Components | shadcn/ui (Radix primitives), cmdk for command menus, Sonner for toasts |
 | Motion     | Motion (`motion/react`) with `LazyMotion`, loaded asynchronously        |
+| Scrolling  | Lenis for inertial smooth scrolling, skipped under reduced motion       |
 | Icons      | Lucide React                                                            |
 | Forms      | React Hook Form + Zod                                                   |
 | State      | Zustand (with `persist` for localStorage)                               |
-| Fonts      | Geist Sans / Geist Mono via `next/font`                                 |
+| Fonts      | Roboto / Roboto Mono via `next/font`                                    |
 | Testing    | Vitest + Testing Library (unit/component), Playwright (end-to-end)      |
 | Tooling    | ESLint (`eslint-config-next`), Prettier with the Tailwind plugin        |
 
@@ -81,15 +82,16 @@ Optional environment variable: `NEXT_PUBLIC_SITE_URL` sets the canonical URL for
 ### Landing page (`/`)
 
 - Sticky header. On scroll it gains a border and blur. It highlights the active section, and on mobile the menu is a drawer.
+- Inertial smooth scrolling site-wide via Lenis (`providers/lenis-provider.tsx`); the landing nav's `#section` links animate through it instead of jumping. Skipped entirely under `prefers-reduced-motion`.
 - Hero with the core message ("Every leading AI model. One calm workspace."), a primary and a secondary CTA, provider marks and trust figures. The hero animates in with CSS only, so it doesn't wait for JavaScript.
 - A theme-matched product banner (`public/hero-banner-dark.png` / `hero-banner-light.png`) served through `next/image`.
-  - On wide screens (1280px+) it fills the right side behind the copy and fades into the page; on smaller screens it sits below the text.
+  - On wide screens (1280px+) it covers the whole hero with no overlay; the copy (and the header) align to the page edge so the text sits in the image's open left area. On smaller screens it sits below the text.
   - Both images are lazy and the inactive one is `display: none`, so only the banner for the current theme is downloaded, with a blur placeholder while it loads.
 - **Features**: three key capabilities (multi-model chat, model switching and the browser sidebar) get full-width rows with small product fragments. Prompt workflows, organization, shortcuts and reusable prompts are listed below them without boxes.
 - **AI Models**: a data-driven, table-style list showing each model's provider, strengths, context window and Free/Pro plan. On mobile each row stacks.
 - **Product preview** tabs: Compare, Prompt library and Chrome sidebar.
 - **Why EchoGPT**: benefits with metrics.
-- **Workflow comparison**: a real `<table>` on desktop that becomes stacked cards on mobile.
+- **Workflow comparison**: a before/after illustration (`public/before-after.png`, via `next/image`) followed by a real `<table>` on desktop that becomes stacked cards on mobile.
 - **Pricing**: Free, Pro and Team plans with a Monthly/Yearly toggle, driven by `data/pricing.ts`.
 - **Testimonials**, an accessible **FAQ** accordion and a closing **CTA**.
 - **Footer** with link columns, social links and a newsletter form. The form validates with Zod, is a mock that sends nothing, and is lazy-loaded.

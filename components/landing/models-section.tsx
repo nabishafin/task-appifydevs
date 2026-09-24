@@ -17,9 +17,9 @@ export function ModelsSection() {
     <section
       id="models"
       aria-labelledby="models-title"
-      className="border-y border-border bg-background-subtle py-20 sm:py-28"
+      className="border-y border-border bg-background-subtle py-10 sm:py-14"
     >
-      <ResponsiveContainer size="xl">
+      <ResponsiveContainer size="wide">
         <SectionHeading
           id="models-title"
           eyebrow="AI models"
@@ -27,7 +27,7 @@ export function ModelsSection() {
           description={`${MODELS.length} models from ${PROVIDER_COUNT} providers, all behind one composer. Start free with the fast models and unlock the flagships with Pro.`}
         />
 
-        <Reveal className="mt-14 overflow-hidden rounded-md border border-border bg-background">
+        <Reveal className="mt-8 overflow-hidden rounded-md border border-border bg-background">
           <div
             aria-hidden="true"
             className={cn(
@@ -48,7 +48,7 @@ export function ModelsSection() {
           </ul>
         </Reveal>
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-8 flex justify-center">
           <Button asChild variant="outline" size="lg">
             <Link href={siteConfig.links.app}>
               Try any model in the app

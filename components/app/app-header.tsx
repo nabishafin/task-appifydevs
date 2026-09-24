@@ -27,7 +27,7 @@ export function AppHeader() {
   const title = isChat ? (conversation?.title ?? "New chat") : (APP_PAGE_TITLES[pathname] ?? "EchoGPT");
 
   return (
-    <header className="flex h-14 shrink-0 items-center gap-2 border-b border-border px-3 sm:px-4">
+    <header className="flex h-14 shrink-0 items-center gap-2 border-b border-border px-4 sm:px-6 lg:px-8">
       <TooltipIconButton label="Open navigation" className="md:hidden" onClick={() => setMobileSidebarOpen(true)}>
         <Menu aria-hidden="true" />
       </TooltipIconButton>

@@ -56,7 +56,7 @@ export function CompareView() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:px-6">
+    <div className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:px-6 lg:px-8 xl:px-10">
       <div>
         <h2 className="text-xl font-semibold tracking-tight text-foreground">Compare models side by side</h2>
         <p className="mt-1 text-sm text-muted-foreground">

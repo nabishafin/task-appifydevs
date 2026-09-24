@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto, Roboto_Mono } from "next/font/google";
 import { siteConfig } from "@/constants/site";
 import { themeInitScript } from "@/lib/theme";
 import { AppProviders } from "@/providers/app-providers";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -64,8 +64,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       // Dark is the default presentation; the inline script corrects it before paint.
-      className={`dark ${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
-      data-scroll-behavior="smooth"
+      // Scroll smoothing is handled by Lenis (see LenisProvider), not native CSS, so the
+      // two don't fight each other.
+      className={`dark ${roboto.variable} ${robotoMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
