@@ -49,7 +49,7 @@ export function ComparisonSection() {
         />
 
         <Reveal className="mt-8">
-          <figure className="mx-auto max-w-[88rem] overflow-hidden rounded-lg border border-border bg-code shadow-lg">
+          <figure className="mx-auto max-w-[88rem] overflow-hidden rounded-2xl bg-code shadow-xl">
             <Image
               src={beforeAfter}
               alt="Before: ChatGPT, Claude, Gemini, Perplexity and Notion AI open as separate windows. After: one EchoGPT workspace with every model in a single composer."
@@ -61,11 +61,11 @@ export function ComparisonSection() {
         </Reveal>
 
         <Reveal className="mt-8">
-          <div className="hidden overflow-hidden rounded-lg border border-border bg-card md:block">
+          <div className="hidden overflow-hidden rounded-2xl bg-card shadow-md md:block">
             <table className="w-full border-collapse text-left text-sm">
               <caption className="sr-only">How common AI tasks compare between separate AI tools and EchoGPT</caption>
               <thead>
-                <tr className="border-b border-border bg-background-subtle">
+                <tr className="bg-background-subtle/80">
                   <th scope="col" className="w-[22%] px-6 py-4 font-medium text-muted-foreground">
                     Task
                   </th>
@@ -74,10 +74,10 @@ export function ComparisonSection() {
                   </th>
                   <th
                     scope="col"
-                    className="w-[39%] border-l border-border bg-primary/5 px-6 py-4 font-medium text-foreground"
+                    className="w-[39%] bg-primary/10 px-6 py-4 font-medium text-foreground"
                   >
                     <span className="flex items-center gap-2">
-                      <LogoMark className="size-5" />
+                      <LogoMark className="h-5 w-auto" />
                       With EchoGPT
                     </span>
                   </th>
@@ -85,14 +85,14 @@ export function ComparisonSection() {
               </thead>
               <tbody>
                 {WORKFLOW_COMPARISON.map((row) => (
-                  <tr key={row.task} className="border-b border-border last:border-b-0">
+                  <tr key={row.task} className="transition-colors hover:bg-background-subtle/40">
                     <th scope="row" className="px-6 py-4 align-top font-medium text-foreground">
                       {row.task}
                     </th>
                     <td className="px-6 py-4 align-top">
                       <TraditionalCell>{row.traditional}</TraditionalCell>
                     </td>
-                    <td className="border-l border-border bg-primary/5 px-6 py-4 align-top">
+                    <td className="bg-primary/5 px-6 py-4 align-top">
                       <EchoCell>{row.echo}</EchoCell>
                     </td>
                   </tr>
@@ -101,11 +101,11 @@ export function ComparisonSection() {
             </table>
           </div>
 
-          <ul className="space-y-3 md:hidden">
+          <ul className="space-y-4 md:hidden">
             {WORKFLOW_COMPARISON.map((row) => (
-              <li key={row.task} className="rounded-lg border border-border bg-card">
-                <h3 className="border-b border-border px-4 py-3 text-sm font-semibold text-foreground">{row.task}</h3>
-                <div className="space-y-3 p-4 text-sm">
+              <li key={row.task} className="overflow-hidden rounded-xl bg-card p-5 shadow-xs">
+                <h3 className="text-sm font-semibold text-foreground">{row.task}</h3>
+                <div className="mt-3 space-y-3 text-sm">
                   <TraditionalCell labelled>{row.traditional}</TraditionalCell>
                   <EchoCell labelled>{row.echo}</EchoCell>
                 </div>

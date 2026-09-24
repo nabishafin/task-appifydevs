@@ -19,7 +19,7 @@ export function MockModelPill({ providerId, name, className }: ModelPillProps) {
   return (
     <span
       className={cn(
-        "inline-flex h-7 items-center gap-1.5 rounded-md border border-border bg-background px-2 text-xs font-medium text-foreground",
+        "inline-flex h-7 items-center gap-1.5 rounded-md bg-muted/60 px-2 text-xs font-medium text-foreground",
         className,
       )}
     >
@@ -76,7 +76,7 @@ export function MockComposer({
   className,
 }: ComposerProps) {
   return (
-    <div className={cn("rounded-lg border border-border bg-card p-2.5 shadow-sm", className)}>
+    <div className={cn("rounded-xl bg-card p-2.5 shadow-sm", className)}>
       <p className="px-1 pb-3 text-[13px] text-subtle-foreground">{placeholder}</p>
       <div className="flex items-center gap-1.5">
         <MockModelPill providerId={providerId} name={modelName} className="min-w-0" />

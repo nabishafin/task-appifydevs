@@ -18,7 +18,7 @@ export function SiteHeader() {
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
           <ThemeToggle className="size-10 lg:size-8" />
-          <Button asChild variant="ghost" size="sm" className="hidden lg:inline-flex">
+          <Button asChild variant="ghost" size="sm" className="hidden lg:inline-flex text-foreground/85 hover:text-foreground font-medium">
             <Link href={siteConfig.links.signIn}>Sign in</Link>
           </Button>
           <Button asChild size="sm" className="hidden sm:inline-flex">

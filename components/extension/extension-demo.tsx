@@ -82,7 +82,7 @@ export function ExtensionDemo() {
           onClick={() => setPopupOpen(!popupOpen)}
           className={cn("size-7", popupOpen && "bg-muted")}
         >
-          <LogoMark className="size-4.5" />
+          <LogoMark className="h-4.5 w-auto" />
         </Button>
       </TooltipTrigger>
       <TooltipContent side="bottom">EchoGPT</TooltipContent>

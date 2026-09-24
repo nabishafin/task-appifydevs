@@ -17,7 +17,7 @@ export function ModelsSection() {
     <section
       id="models"
       aria-labelledby="models-title"
-      className="border-y border-border bg-background-subtle py-10 sm:py-14"
+      className="bg-background-subtle py-10 sm:py-14"
     >
       <ResponsiveContainer size="wide">
         <SectionHeading
@@ -27,11 +27,11 @@ export function ModelsSection() {
           description={`${MODELS.length} models from ${PROVIDER_COUNT} providers, all behind one composer. Start free with the fast models and unlock the flagships with Pro.`}
         />
 
-        <Reveal className="mt-8 overflow-hidden rounded-md border border-border bg-background">
+        <Reveal className="mt-8 overflow-hidden rounded-2xl bg-card shadow-md">
           <div
             aria-hidden="true"
             className={cn(
-              "hidden border-b border-border px-5 py-3 text-xs font-medium tracking-wide text-subtle-foreground uppercase",
+              "hidden bg-background-subtle/80 px-5 py-3 text-xs font-medium tracking-wide text-subtle-foreground uppercase",
               MODEL_ROW_GRID,
             )}
           >
@@ -39,16 +39,16 @@ export function ModelsSection() {
               <span key={column}>{column}</span>
             ))}
           </div>
-          <ul className="divide-y divide-border">
+          <ul>
             {MODELS.map((model) => (
-              <li key={model.id} className="transition-colors hover:bg-background-subtle">
+              <li key={model.id} className="transition-colors hover:bg-background-subtle/60">
                 <ModelRow model={model} />
               </li>
             ))}
           </ul>
         </Reveal>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex justify-start">
           <Button asChild variant="outline" size="lg">
             <Link href={siteConfig.links.app}>
               Try any model in the app

@@ -7,7 +7,7 @@ export function PricingSection() {
     <section
       id="pricing"
       aria-labelledby="pricing-title"
-      className="border-y border-border bg-background-subtle py-10 sm:py-14"
+      className="bg-background-subtle py-10 sm:py-14"
     >
       <ResponsiveContainer size="wide">
         <SectionHeading
@@ -17,7 +17,7 @@ export function PricingSection() {
           description="Start free with the fast models. Upgrade when you want every model, side-by-side comparison and no daily limits."
         />
         <PricingPlans />
-        <p className="mt-8 text-center text-xs text-subtle-foreground">
+        <p className="mt-8 text-left text-xs text-subtle-foreground">
           Prices in USD, per seat. Taxes may apply. Concept pricing for this redesign.
         </p>
       </ResponsiveContainer>

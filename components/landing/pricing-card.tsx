@@ -21,8 +21,10 @@ export function PricingCard({ tier, billing, className }: PricingCardProps) {
     <article
       aria-labelledby={titleId}
       className={cn(
-        "relative flex h-full flex-col rounded-lg border bg-card p-6 sm:p-7",
-        highlighted ? "border-primary/60 shadow-md ring-1 ring-primary/30" : "border-border",
+        "relative flex h-full flex-col rounded-2xl bg-card p-6 sm:p-7 transition-all duration-200",
+        highlighted
+          ? "shadow-xl shadow-primary/10 ring-1 ring-primary/30"
+          : "shadow-md shadow-black/[0.03] hover:shadow-lg",
         className,
       )}
     >
@@ -71,7 +73,7 @@ export function PricingCard({ tier, billing, className }: PricingCardProps) {
         <Link href={tier.cta.href}>{tier.cta.label}</Link>
       </Button>
 
-      <ul className="mt-7 space-y-3 border-t border-border pt-6">
+      <ul className="mt-7 space-y-3 pt-6">
         {tier.features.map((feature) => (
           <li key={feature} className="flex gap-2.5 text-sm text-muted-foreground">
             <Check

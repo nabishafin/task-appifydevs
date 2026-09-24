@@ -6,7 +6,7 @@ import { SectionHeading } from "./section-heading";
 
 function Quote({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <figure className="flex h-full flex-col border-l-2 border-border pl-5 transition-colors hover:border-primary/60">
+    <figure className="flex h-full flex-col rounded-2xl bg-card/60 p-6 shadow-xs transition-all duration-200 hover:bg-card hover:shadow-md">
       <blockquote className="flex-1 text-[0.95rem] leading-relaxed text-foreground">
         <p>“{testimonial.quote}”</p>
       </blockquote>
@@ -37,7 +37,7 @@ export function TestimonialsSection() {
             </StaggerItem>
           ))}
         </Stagger>
-        <p className="mt-12 text-center text-xs text-subtle-foreground">
+        <p className="mt-12 text-left text-xs text-subtle-foreground">
           Illustrative testimonials for this redesign concept.
         </p>
       </ResponsiveContainer>

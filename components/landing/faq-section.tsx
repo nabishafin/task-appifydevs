@@ -10,7 +10,7 @@ export function FAQSection() {
     <section
       id="faq"
       aria-labelledby="faq-title"
-      className="border-y border-border bg-background-subtle py-10 sm:py-14"
+      className="bg-background-subtle py-10 sm:py-14"
     >
       <ResponsiveContainer size="wide" className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
         <div>
@@ -33,9 +33,9 @@ export function FAQSection() {
           </a>
         </div>
 
-        <Accordion type="single" collapsible defaultValue={FAQ_ITEMS[0]?.id} className="self-start">
+        <Accordion type="single" collapsible defaultValue={FAQ_ITEMS[0]?.id} className="self-start space-y-3">
           {FAQ_ITEMS.map((item) => (
-            <AccordionItem key={item.id} value={item.id} className="border-border">
+            <AccordionItem key={item.id} value={item.id} className="border-none rounded-xl bg-card/60 px-5 shadow-xs">
               <AccordionTrigger className="gap-4 py-5 text-base hover:no-underline">{item.question}</AccordionTrigger>
               <AccordionContent className="pb-5 text-[0.95rem] leading-relaxed text-muted-foreground">
                 {item.answer}

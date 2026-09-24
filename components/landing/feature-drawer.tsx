@@ -39,8 +39,8 @@ export function FeatureDrawer({ features, illustrations }: FeatureDrawerProps) {
   const active = features.find((feature) => feature.id === activeId) ?? features[0];
 
   return (
-    <div className="hidden overflow-hidden rounded-lg border border-border lg:grid lg:grid-cols-[minmax(0,17rem)_1fr]">
-      <nav aria-label="Features" className="flex flex-col divide-y divide-border border-r border-border">
+    <div className="hidden overflow-hidden rounded-2xl bg-card shadow-lg lg:grid lg:grid-cols-[minmax(0,17rem)_1fr]">
+      <nav aria-label="Features" className="flex flex-col bg-background-subtle/50">
         {features.map((feature) => {
           const isActive = feature.id === activeId;
           return (

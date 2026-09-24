@@ -1,33 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
+import logoImg from "@/public/logo.png";
 import { cn } from "@/lib/utils";
 
 interface LogoMarkProps {
   className?: string;
 }
 
-/** The EchoGPT mark: a source point with two echo waves. */
+/** The EchoGPT official logo mark / image. */
 export function LogoMark({ className }: LogoMarkProps) {
   return (
-    <svg viewBox="0 0 32 32" aria-hidden="true" className={cn("size-7 shrink-0", className)}>
-      <rect width="32" height="32" rx="9" fill="var(--primary)" />
-      <circle cx="11" cy="16" r="3" fill="#fff" />
-      <path d="M16.1 10.5A7.5 7.5 0 0 1 16.1 21.5" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" fill="none" />
-      <path
-        d="M19.9 8A12 12 0 0 1 19.9 24"
-        stroke="#fff"
-        strokeOpacity="0.55"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        fill="none"
-      />
-    </svg>
+    <Image
+      src={logoImg}
+      alt="EchoGPT logo"
+      priority
+      className={cn("h-7 w-auto object-contain", className)}
+    />
   );
 }
 
 interface LogoProps {
   href?: string;
   className?: string;
-  /** Hide the wordmark, e.g. in the collapsed sidebar. */
+  /** Hide the wordmark or render compact logo. */
   compact?: boolean;
 }
 
@@ -36,13 +31,20 @@ export function Logo({ href = "/", className, compact = false }: LogoProps) {
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center gap-2 rounded-lg font-semibold tracking-tight text-foreground",
+        "inline-flex items-center gap-2 rounded-lg transition-opacity hover:opacity-90",
         className,
       )}
       aria-label="EchoGPT home"
     >
-      <LogoMark />
-      {!compact && <span className="text-[1.05rem]">EchoGPT</span>}
+      <Image
+        src={logoImg}
+        alt="EchoGPT"
+        priority
+        className={cn(
+          "h-16 w-auto object-contain",
+          compact && "h-6",
+        )}
+      />
     </Link>
   );
 }

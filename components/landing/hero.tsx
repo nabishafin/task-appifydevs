@@ -16,7 +16,7 @@ function HeroCopy() {
     <div className="mx-auto flex max-w-xl flex-col items-center text-center xl:mx-0 xl:max-w-[min(32rem,31vw)] xl:items-start xl:text-left">
       <Link
         href={siteConfig.links.extension}
-        className={`${ENTRANCE} group inline-flex h-8 items-center gap-2 rounded-md border border-border bg-card/80 pr-3 pl-1 text-xs font-medium text-muted-foreground shadow-xs backdrop-blur transition-colors hover:border-border-strong hover:text-foreground`}
+        className={`${ENTRANCE} group inline-flex h-8 items-center gap-2 rounded-full bg-card/90 pr-3 pl-1.5 text-xs font-medium text-muted-foreground shadow-xs backdrop-blur transition-colors hover:text-foreground`}
       >
         <span className="rounded-md bg-primary/12 px-2 py-0.5 text-primary-text">New</span>
         Chrome sidebar 2.0
@@ -98,9 +98,9 @@ export function Hero() {
 
       <ResponsiveContainer size="wide">
         {/* Smaller screens: the banner sits below the copy instead of behind it. */}
-        <HeroBanner className="mt-8 aspect-[16/10] animate-in rounded-lg border border-border delay-300 duration-1000 fill-mode-both fade-in slide-in-from-bottom-4 sm:mt-10 xl:hidden" />
+        <HeroBanner className="mt-8 aspect-[16/10] animate-in rounded-2xl shadow-xl delay-300 duration-1000 fill-mode-both fade-in slide-in-from-bottom-4 sm:mt-10 xl:hidden" />
 
-        <dl className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-y-6 pb-12 sm:grid-cols-4 sm:divide-x sm:divide-border sm:pb-16 xl:mt-4">
+        <dl className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-y-6 pb-12 sm:grid-cols-4 sm:pb-16 xl:mt-4">
           {TRUST_STATS.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center gap-1 px-4 text-center">
               <dt className="order-2 text-xs text-muted-foreground">{stat.label}</dt>

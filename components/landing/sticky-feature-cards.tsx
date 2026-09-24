@@ -82,10 +82,10 @@ const CARDS: SpotlightCardData[] = [
 
 export function StickyFeatureCards() {
   return (
-    <div className="relative mt-12 space-y-8 sm:space-y-12">
+    <div className="relative mt-8 sm:mt-12 space-y-6 sm:space-y-10 [--stack-top:4.25rem] sm:[--stack-top:5rem] lg:[--stack-top:5.5rem]">
       {CARDS.map((card, index) => {
         // Progressive sticky top offset creates the layered card deck effect as the user scrolls
-        const stickyTop = `calc(5rem + ${index * 1.5}rem)`;
+        const stickyTop = `calc(var(--stack-top) + ${index * 1.25}rem)`;
         const zIndex = 10 + index * 5;
 
         return (
@@ -99,43 +99,37 @@ export function StickyFeatureCards() {
           >
             <article
               className={cn(
-                "relative overflow-hidden rounded-2xl border border-border/80 bg-card/95 p-6 backdrop-blur-xl transition-all duration-300 sm:p-8 lg:p-10",
-                "shadow-[0_10px_35px_-12px_rgba(0,0,0,0.15)] dark:shadow-[0_12px_45px_-15px_rgba(0,0,0,0.6)]",
-                "hover:border-primary/30",
+                "relative overflow-hidden rounded-2xl bg-card/95 p-5 sm:p-7 lg:p-9 backdrop-blur-xl transition-all duration-300",
+                "shadow-[0_10px_35px_-10px_rgba(0,0,0,0.1)] dark:shadow-[0_16px_50px_-15px_rgba(0,0,0,0.7)]",
               )}
             >
-              {/* Subtle top gradient accent line */}
-              <div
-                className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"
-                aria-hidden="true"
-              />
 
-              <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
+              <div className="grid items-center gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
                 {/* Left Column: Feature Details */}
-                <div className="flex flex-col justify-center space-y-5">
-                  <div className="flex items-center gap-3">
-                    <span className="flex size-7 items-center justify-center rounded-md border border-primary/30 bg-primary/10 font-mono text-xs font-semibold text-primary-text">
+                <div className="flex flex-col justify-center space-y-4 sm:space-y-5">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <span className="flex size-6 sm:size-7 items-center justify-center rounded-md bg-primary/15 font-mono text-xs font-semibold text-primary-text">
                       {card.step}
                     </span>
-                    <span className="text-xs font-semibold tracking-wider text-primary-text uppercase">
+                    <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-primary-text uppercase">
                       {card.tag}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground">
                       {card.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    <p className="mt-2 sm:mt-3 text-xs sm:text-sm lg:text-base leading-relaxed text-muted-foreground">
                       {card.description}
                     </p>
                   </div>
 
-                  <ul className="space-y-2.5 pt-1">
+                  <ul className="space-y-2 sm:space-y-2.5 pt-0.5 sm:pt-1">
                     {card.points.map((point) => (
-                      <li key={point} className="flex items-start gap-2.5 text-sm text-foreground/90">
-                        <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary-text">
-                          <Check className="size-3" aria-hidden="true" />
+                      <li key={point} className="flex items-start gap-2 sm:gap-2.5 text-xs sm:text-sm text-foreground/90">
+                        <span className="mt-0.5 flex size-3.5 sm:size-4 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary-text">
+                          <Check className="size-2.5 sm:size-3" aria-hidden="true" />
                         </span>
                         <span>{point}</span>
                       </li>
@@ -143,14 +137,14 @@ export function StickyFeatureCards() {
                   </ul>
 
                   {card.ctaText && card.ctaHref && (
-                    <div className="pt-2">
+                    <div className="pt-1 sm:pt-2">
                       <Link
                         href={card.ctaHref}
-                        className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary-text hover:underline"
+                        className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-primary-text hover:underline"
                       >
                         {card.ctaText}
                         <ArrowRight
-                          className="size-3.5 transition-transform duration-200 group-hover:translate-x-1"
+                          className="size-3 sm:size-3.5 transition-transform duration-200 group-hover:translate-x-1"
                           aria-hidden="true"
                         />
                       </Link>
@@ -159,7 +153,7 @@ export function StickyFeatureCards() {
                 </div>
 
                 {/* Right Column: Interactive Illustration Surface */}
-                <div className="relative min-w-0 rounded-xl border border-border/70 bg-background-subtle/80 p-3 sm:p-5 shadow-inner">
+                <div className="relative min-w-0 rounded-xl bg-background-subtle/80 p-3 sm:p-5 shadow-inner">
                   {card.illustration}
                 </div>
               </div>

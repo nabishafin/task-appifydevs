@@ -41,9 +41,9 @@ const COMPARE_ANSWERS = [
 export function CompareMock() {
   return (
     <div aria-hidden="true" className={cn("flex flex-col bg-background select-none", MOCK_HEIGHT)}>
-      <div className="flex h-12 shrink-0 items-center gap-2 border-b border-border px-4">
+      <div className="flex h-12 shrink-0 items-center gap-2 bg-background-subtle/50 px-4">
         <p className="truncate text-sm font-medium text-foreground">Compare · Annual vs monthly billing</p>
-        <span className="ml-auto rounded-md border border-border px-2 py-0.5 text-[11px] text-muted-foreground">
+        <span className="ml-auto rounded-md bg-muted px-2 py-0.5 text-[11px] text-muted-foreground">
           2 models
         </span>
       </div>
@@ -55,7 +55,7 @@ export function CompareMock() {
           <div
             key={answer.modelName}
             className={cn(
-              "flex-col rounded-lg border border-border bg-card p-4",
+              "flex-col rounded-xl bg-card p-4 shadow-sm",
               index === 0 ? "flex" : "hidden sm:flex",
             )}
           >
@@ -68,7 +68,7 @@ export function CompareMock() {
               </ul>
             </MockAssistantMessage>
             <div className="mt-auto flex items-center gap-2 pt-4 text-[11px] text-subtle-foreground">
-              <span className="inline-flex h-6 items-center rounded-md border border-border px-2">
+              <span className="inline-flex h-6 items-center rounded-md bg-muted px-2">
                 Continue with this
               </span>
             </div>
@@ -88,7 +88,7 @@ export function PromptLibraryMock() {
       aria-hidden="true"
       className={cn("grid bg-background select-none md:grid-cols-[200px_minmax(0,1fr)]", MOCK_HEIGHT)}
     >
-      <div className="hidden flex-col gap-0.5 border-r border-border bg-sidebar p-3 md:flex">
+      <div className="hidden flex-col gap-0.5 bg-sidebar p-3 md:flex">
         <p className="flex items-center gap-2 px-2 pb-2 text-xs font-medium text-foreground">
           <BookMarked className="size-3.5 text-primary-text" />
           Prompt library
@@ -106,13 +106,13 @@ export function PromptLibraryMock() {
         ))}
       </div>
       <div className="flex min-w-0 flex-col overflow-hidden p-4 sm:p-5">
-        <div className="flex h-9 items-center gap-2 rounded-lg border border-border bg-card px-3 text-xs text-subtle-foreground">
+        <div className="flex h-9 items-center gap-2 rounded-xl bg-card px-3 text-xs text-subtle-foreground shadow-xs">
           <Search className="size-3.5" />
           Search {PROMPT_TEMPLATES.length} templates
         </div>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {LIBRARY_TEMPLATES.map((template) => (
-            <li key={template.id} className="flex flex-col gap-2 rounded-lg border border-border bg-card p-3.5">
+            <li key={template.id} className="flex flex-col gap-2 rounded-xl bg-card p-3.5 shadow-xs">
               <p className="flex items-center justify-between gap-2 text-[11px] text-subtle-foreground">
                 <span className="rounded-md bg-muted px-1.5 py-px text-muted-foreground">
                   {CATEGORY_LABELS.get(template.category)}
@@ -157,9 +157,9 @@ export function ExtensionSidebarMock() {
         </div>
       </div>
 
-      <div className="flex min-w-0 flex-col border-border bg-card md:border-l">
-        <div className="flex h-12 shrink-0 items-center gap-2 border-b border-border px-3">
-          <LogoMark className="size-6" />
+      <div className="flex min-w-0 flex-col bg-card shadow-lg">
+        <div className="flex h-12 shrink-0 items-center gap-2 bg-background-subtle/50 px-3">
+          <LogoMark className="h-6 w-auto" />
           <span className="text-sm font-medium text-foreground">EchoGPT</span>
           <PanelRight className="ml-auto size-4 text-subtle-foreground" />
           <X className="size-4 text-subtle-foreground" />
@@ -170,10 +170,10 @@ export function ExtensionSidebarMock() {
               <span
                 key={id}
                 className={cn(
-                  "flex h-9 items-center gap-1.5 rounded-lg border px-2 text-[11px] font-medium",
+                  "flex h-9 items-center gap-1.5 rounded-lg px-2 text-[11px] font-medium shadow-xs",
                   index === 1
-                    ? "border-primary/40 bg-primary/8 text-foreground"
-                    : "border-border bg-background text-muted-foreground",
+                    ? "bg-primary/15 text-primary-text font-semibold"
+                    : "bg-background text-muted-foreground",
                 )}
               >
                 <Icon className="size-3.5 shrink-0 text-primary-text" />

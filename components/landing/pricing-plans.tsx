@@ -16,7 +16,7 @@ export function PricingPlans() {
 
   return (
     <>
-      <div className="mt-10 flex justify-center">
+      <div className="mt-8 flex justify-start">
         <SegmentedControl
           id="billing-cycle"
           label="Billing cycle"
@@ -25,7 +25,7 @@ export function PricingPlans() {
           options={BILLING_OPTIONS}
         />
       </div>
-      <ul className="mx-auto mt-10 grid max-w-md gap-4 lg:max-w-none lg:grid-cols-3 lg:gap-6">
+      <ul className="mt-8 grid max-w-md gap-4 lg:max-w-none lg:grid-cols-3 lg:gap-6">
         {PRICING_TIERS.map((tier) => (
           <li key={tier.id}>
             <PricingCard tier={tier} billing={billing} />

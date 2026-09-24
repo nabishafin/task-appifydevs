@@ -11,7 +11,7 @@ const otherFeatures = FEATURES.filter(
 
 export function FeaturesSection() {
   return (
-    <section id="features" aria-labelledby="features-title" className="border-t border-border py-10 sm:py-14">
+    <section id="features" aria-labelledby="features-title" className="py-10 sm:py-14">
       <ResponsiveContainer size="wide">
         <SectionHeading
           id="features-title"

@@ -38,7 +38,7 @@ export function FeatureListItem({ feature }: { feature: FeatureItemData }) {
   const Icon = feature.icon;
 
   return (
-    <article className="border-t border-border pt-6">
+    <article className="rounded-xl bg-card/60 p-5 shadow-xs transition-colors hover:bg-card">
       <Icon className="size-5 text-primary-text" aria-hidden="true" />
       <h3 className="mt-4 text-base font-semibold text-foreground">{feature.title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>

@@ -8,7 +8,7 @@ export function WhySection() {
     <section
       id="why"
       aria-labelledby="why-title"
-      className="border-y border-border bg-background-subtle py-10 sm:py-14"
+      className="bg-background-subtle py-10 sm:py-14"
     >
       <ResponsiveContainer size="wide" className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-20">
         <SectionHeading
@@ -21,7 +21,7 @@ export function WhySection() {
         />
         <Stagger as="ul" className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
           {BENEFITS.map(({ title, description, metric }) => (
-            <StaggerItem as="li" key={title} className="border-t border-border pt-6">
+            <StaggerItem as="li" key={title} className="rounded-xl bg-card/60 p-6 shadow-xs">
               {metric && (
                 <p className="flex items-baseline gap-2">
                   <span className="text-3xl font-semibold tracking-tight text-foreground tabular-nums">

@@ -20,8 +20,8 @@ export function DesktopNav() {
                 href={item.href}
                 aria-current={active ? "location" : undefined}
                 className={cn(
-                  "relative inline-flex h-8 items-center rounded-md px-3 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
-                  active ? "text-foreground" : "text-muted-foreground",
+                  "relative inline-flex h-8 items-center rounded-md px-3 text-sm font-medium transition-colors hover:bg-muted/60 hover:text-foreground",
+                  active ? "text-foreground font-semibold" : "text-foreground/80",
                 )}
               >
                 {item.label}
