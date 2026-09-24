@@ -12,7 +12,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const density = usePreferencesStore((state) => state.density);
 
   return (
-    <div data-font-scale={fontScale} data-density={density} className="flex h-dvh overflow-hidden bg-background">
+    <div data-lenis-prevent data-font-scale={fontScale} data-density={density} className="flex h-dvh overflow-hidden bg-background">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:shadow-md"

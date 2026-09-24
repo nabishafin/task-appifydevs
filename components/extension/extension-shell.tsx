@@ -62,6 +62,7 @@ export function ExtensionShell({ onClose, className }: ExtensionShellProps) {
 
   return (
     <section
+      data-lenis-prevent
       aria-label="EchoGPT extension"
       className={cn("flex h-full min-h-0 flex-col overflow-hidden bg-background text-foreground", className)}
     >

@@ -113,6 +113,7 @@ export function ChatWorkspace() {
     <div className="relative flex min-h-0 flex-1 flex-col">
       <div
         ref={containerRef}
+        data-lenis-prevent
         className="min-h-0 flex-1 thin-scrollbar overflow-y-auto overscroll-y-contain"
         aria-live="polite"
         aria-busy={isGenerating}
