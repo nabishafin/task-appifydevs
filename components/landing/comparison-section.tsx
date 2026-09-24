@@ -49,11 +49,11 @@ export function ComparisonSection() {
         />
 
         <Reveal className="mt-8">
-          <figure className="mx-auto max-w-[88rem] overflow-hidden rounded-2xl bg-code shadow-xl">
+          <figure className="w-full overflow-hidden rounded-2xl bg-card shadow-md">
             <Image
               src={beforeAfter}
               alt="Before: ChatGPT, Claude, Gemini, Perplexity and Notion AI open as separate windows. After: one EchoGPT workspace with every model in a single composer."
-              sizes="(min-width: 1152px) 1088px, calc(100vw - 2rem)"
+              sizes="(min-width: 1280px) 1216px, calc(100vw - 2rem)"
               placeholder="blur"
               className="h-auto w-full"
             />
