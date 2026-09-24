@@ -98,7 +98,7 @@ export function ProductPreviewSection() {
           description="The same calm interface across the web app and the Chrome extension, designed around how people actually use AI day to day."
         />
         <ProductPreviewTabs tabs={TABS} />
-        <div className="mt-12 flex flex-col items-center gap-3 text-center">
+        <div className="mt-12 flex flex-col items-start gap-3 text-left">
           <Button asChild variant="outline" size="lg">
             <Link href={siteConfig.links.app}>
               Open the live demo

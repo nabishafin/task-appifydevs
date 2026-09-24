@@ -13,7 +13,7 @@ const ENTRANCE = "animate-in fade-in slide-in-from-bottom-2 duration-700 fill-mo
 
 function HeroCopy() {
   return (
-    <div className="mx-auto flex max-w-xl flex-col items-center text-center xl:mx-0 xl:max-w-[min(32rem,31vw)] xl:items-start xl:text-left">
+    <div className="flex max-w-xl flex-col items-start text-left xl:max-w-[min(32rem,31vw)]">
       <Link
         href={siteConfig.links.extension}
         className={`${ENTRANCE} group inline-flex h-8 items-center gap-2 rounded-full bg-card/90 pr-3 pl-1.5 text-xs font-medium text-muted-foreground shadow-xs backdrop-blur transition-colors hover:text-foreground`}
@@ -59,7 +59,7 @@ function HeroCopy() {
 
       <div className={`${ENTRANCE} mt-10 delay-300`}>
         <p className="text-xs font-medium text-subtle-foreground">Works with models from</p>
-        <ul className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 xl:justify-start">
+        <ul className="mt-3 flex flex-wrap items-center justify-start gap-x-5 gap-y-3">
           {PROVIDER_LIST.map((provider) => (
             <li key={provider.id} className="flex items-center gap-2 text-sm text-muted-foreground">
               <ModelIcon providerId={provider.id} size="sm" />
