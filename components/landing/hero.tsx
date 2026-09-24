@@ -119,20 +119,15 @@ export function Hero() {
           <HeroBanner className="aspect-[16/10] animate-in rounded-2xl shadow-xl delay-300 duration-1000 fill-mode-both fade-in slide-in-from-bottom-4" />
         </div>
 
-        {/* Bottom-right stats for smaller screens */}
-        <div className="mt-6 flex justify-end pb-12 sm:pb-16 xl:hidden">
-          <dl className="grid w-full grid-cols-2 gap-4 rounded-2xl bg-card/85 p-4 shadow-lg backdrop-blur-md sm:flex sm:w-auto sm:items-center sm:gap-6 sm:px-6 sm:py-3.5">
-            {TRUST_STATS.map((stat, i) => (
-              <div key={stat.label} className="flex items-center gap-6">
-                {i > 0 && <div className="hidden h-7 w-px bg-border/60 sm:block" aria-hidden="true" />}
-                <div className="flex flex-col text-left">
-                  <dd className="text-lg sm:text-xl font-bold tracking-tight text-foreground">{stat.value}</dd>
-                  <dt className="text-xs text-muted-foreground">{stat.label}</dt>
-                </div>
-              </div>
-            ))}
-          </dl>
-        </div>
+        {/* Clean, spacious stats for smaller screens - no cramped card clump */}
+        <dl className="mt-8 grid grid-cols-2 gap-x-8 gap-y-5 pb-6 sm:grid-cols-4 sm:gap-8 sm:pb-8 xl:hidden">
+          {TRUST_STATS.map((stat) => (
+            <div key={stat.label} className="flex flex-col items-start gap-1">
+              <dd className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{stat.value}</dd>
+              <dt className="text-xs leading-normal text-muted-foreground">{stat.label}</dt>
+            </div>
+          ))}
+        </dl>
       </ResponsiveContainer>
     </section>
   );

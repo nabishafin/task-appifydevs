@@ -10,7 +10,7 @@ export function FAQSection() {
     <section
       id="faq"
       aria-labelledby="faq-title"
-      className="bg-background-subtle py-10 sm:py-14"
+      className="bg-background-subtle py-6 sm:py-10 lg:py-14"
     >
       <ResponsiveContainer size="wide" className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
         <div>

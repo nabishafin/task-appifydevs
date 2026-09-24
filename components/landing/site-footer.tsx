@@ -21,7 +21,7 @@ function isExternal(href: string): boolean {
 export function SiteFooter() {
   return (
     <footer className="bg-background-subtle">
-      <ResponsiveContainer size="wide" className="py-10 sm:py-12">
+      <ResponsiveContainer size="wide" className="py-8 sm:py-12">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)]">
           <div className="space-y-6">
             <Logo />

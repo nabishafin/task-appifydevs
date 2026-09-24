@@ -17,7 +17,7 @@ export function ModelsSection() {
     <section
       id="models"
       aria-labelledby="models-title"
-      className="bg-background-subtle py-10 sm:py-14"
+      className="bg-background-subtle py-6 sm:py-10 lg:py-14"
     >
       <ResponsiveContainer size="wide">
         <SectionHeading

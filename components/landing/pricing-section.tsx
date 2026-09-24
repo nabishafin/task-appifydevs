@@ -7,7 +7,7 @@ export function PricingSection() {
     <section
       id="pricing"
       aria-labelledby="pricing-title"
-      className="bg-background-subtle py-10 sm:py-14"
+      className="bg-background-subtle py-6 sm:py-10 lg:py-14"
     >
       <ResponsiveContainer size="wide">
         <SectionHeading

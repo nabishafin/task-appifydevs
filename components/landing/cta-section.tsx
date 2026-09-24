@@ -7,7 +7,7 @@ import { siteConfig } from "@/constants/site";
 
 export function CTASection() {
   return (
-    <section aria-labelledby="cta-title" className="relative isolate overflow-hidden py-12 sm:py-16">
+    <section aria-labelledby="cta-title" className="relative isolate overflow-hidden py-8 sm:py-12 lg:py-16">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-[-14rem] left-1/2 -z-10 h-80 w-[min(48rem,100%)] -translate-x-1/2 rounded-full bg-primary/12 blur-3xl"

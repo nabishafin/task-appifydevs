@@ -81,7 +81,7 @@ const CARDS: SpotlightCardData[] = [
 
 export function StickyFeatureCards() {
   return (
-    <div className="relative mt-8 sm:mt-12 space-y-6 sm:space-y-10 [--stack-top:4.25rem] sm:[--stack-top:5rem] lg:[--stack-top:5.5rem]">
+    <div className="relative mt-6 sm:mt-10 space-y-4 sm:space-y-8 [--stack-top:4.25rem] sm:[--stack-top:5rem] lg:[--stack-top:5.5rem]">
       {CARDS.map((card, index) => {
         // Progressive sticky top offset creates the layered card deck effect as the user scrolls
         const stickyTop = `calc(var(--stack-top) + ${index * 1.25}rem)`;

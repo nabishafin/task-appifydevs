@@ -22,7 +22,7 @@ function Quote({ testimonial }: { testimonial: Testimonial }) {
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" aria-labelledby="testimonials-title" className="py-10 sm:py-14">
+    <section id="testimonials" aria-labelledby="testimonials-title" className="py-6 sm:py-10 lg:py-14">
       <ResponsiveContainer size="wide">
         <SectionHeading
           id="testimonials-title"

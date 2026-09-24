@@ -39,7 +39,7 @@ function EchoCell({ children, labelled = false }: CellProps) {
 
 export function ComparisonSection() {
   return (
-    <section aria-labelledby="comparison-title" className="py-10 sm:py-14">
+    <section aria-labelledby="comparison-title" className="py-6 sm:py-10 lg:py-14">
       <ResponsiveContainer size="wide">
         <SectionHeading
           id="comparison-title"

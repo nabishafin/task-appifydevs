@@ -8,7 +8,7 @@ export function WhySection() {
     <section
       id="why"
       aria-labelledby="why-title"
-      className="bg-background-subtle py-10 sm:py-14"
+      className="bg-background-subtle py-6 sm:py-10 lg:py-14"
     >
       <ResponsiveContainer size="wide" className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-20">
         <SectionHeading

@@ -89,7 +89,7 @@ const TABS: ProductPreviewTab[] = [
 
 export function ProductPreviewSection() {
   return (
-    <section id="product" aria-labelledby="product-title" className="py-10 sm:py-14">
+    <section id="product" aria-labelledby="product-title" className="py-6 sm:py-10 lg:py-14">
       <ResponsiveContainer size="wide">
         <SectionHeading
           id="product-title"
