@@ -94,20 +94,45 @@ export function Hero() {
         >
           <HeroCopy />
         </ResponsiveContainer>
+
+        {/* Bottom-right stats on wide screens */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-6 z-10 hidden xl:block">
+          <ResponsiveContainer size="wide" className="flex justify-end">
+            <dl className="pointer-events-auto flex items-center gap-6 rounded-2xl bg-card/85 px-6 py-3.5 shadow-xl backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-700 delay-300 fill-mode-both">
+              {TRUST_STATS.map((stat, i) => (
+                <div key={stat.label} className="flex items-center gap-6">
+                  {i > 0 && <div className="h-7 w-px bg-border/60" aria-hidden="true" />}
+                  <div className="flex flex-col text-left">
+                    <dd className="text-xl font-bold tracking-tight text-foreground">{stat.value}</dd>
+                    <dt className="text-xs text-muted-foreground">{stat.label}</dt>
+                  </div>
+                </div>
+              ))}
+            </dl>
+          </ResponsiveContainer>
+        </div>
       </div>
 
       <ResponsiveContainer size="wide">
         {/* Smaller screens: the banner sits below the copy instead of behind it. */}
-        <HeroBanner className="mt-8 aspect-[16/10] animate-in rounded-2xl shadow-xl delay-300 duration-1000 fill-mode-both fade-in slide-in-from-bottom-4 sm:mt-10 xl:hidden" />
+        <div className="mt-8 sm:mt-10 xl:hidden">
+          <HeroBanner className="aspect-[16/10] animate-in rounded-2xl shadow-xl delay-300 duration-1000 fill-mode-both fade-in slide-in-from-bottom-4" />
+        </div>
 
-        <dl className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-y-6 pb-12 sm:grid-cols-4 sm:pb-16 xl:mt-4">
-          {TRUST_STATS.map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-1 px-4 text-center">
-              <dt className="order-2 text-xs text-muted-foreground">{stat.label}</dt>
-              <dd className="order-1 text-2xl font-semibold tracking-tight text-foreground">{stat.value}</dd>
-            </div>
-          ))}
-        </dl>
+        {/* Bottom-right stats for smaller screens */}
+        <div className="mt-6 flex justify-end pb-12 sm:pb-16 xl:hidden">
+          <dl className="grid w-full grid-cols-2 gap-4 rounded-2xl bg-card/85 p-4 shadow-lg backdrop-blur-md sm:flex sm:w-auto sm:items-center sm:gap-6 sm:px-6 sm:py-3.5">
+            {TRUST_STATS.map((stat, i) => (
+              <div key={stat.label} className="flex items-center gap-6">
+                {i > 0 && <div className="hidden h-7 w-px bg-border/60 sm:block" aria-hidden="true" />}
+                <div className="flex flex-col text-left">
+                  <dd className="text-lg sm:text-xl font-bold tracking-tight text-foreground">{stat.value}</dd>
+                  <dt className="text-xs text-muted-foreground">{stat.label}</dt>
+                </div>
+              </div>
+            ))}
+          </dl>
+        </div>
       </ResponsiveContainer>
     </section>
   );
