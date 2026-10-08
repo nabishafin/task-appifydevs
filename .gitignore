@@ -42,7 +42,6 @@ next-env.d.ts
 # playwright
 /test-results/
 /playwright-report/
-config.bat
 
 # Environment files (re-added after malware removal)
 .env
